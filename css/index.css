@@ -1,0 +1,436 @@
+/*
+Colores:
+-azul		#5F95B5
+-a.claro	#89C1D4
+-verde		#58C456
+-v.claro	#9FEAA7
+-blanco		#FEFFFF
+-gris		#EFEFEF
+*/
+
+@font-face {
+font-family: 'MeteoconsRegular';
+src: url('meteocons-webfont.eot');
+src: url('meteocons-webfont.eot?#iefix') format('embedded-opentype'),
+url('meteocons-webfont.woff') format('woff'),
+url('meteocons-webfont.ttf') format('truetype'),
+url('meteocons-webfont.svg#MeteoconsRegular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+body{
+	min-width: 1200px; 
+	font-family: 'Exo', sans-serif;
+	background-color: #FEFFFF;
+}
+a{
+	color: white;
+	text-decoration: none;
+	}  a:hover{
+		color: #9FEAA7;
+		}
+		.login:hover, .new:hover{
+			color: black;
+		}
+/*____________REGISTRO_________________________________________________________________*/
+
+.registroCont{
+	z-index: 100;
+	position: absolute;
+    top: 0;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    background-color: #EFEFEF;
+	}
+.linea{
+	display: block;
+	height: 5px;
+	background-color: #5F95B5
+	}
+.registro{
+	margin: 3px auto 0px auto;
+	display: block;
+	height: 40px;
+	width: 1200px;
+	} 
+	.usuario{
+		height: 35px;
+		width: 200px;
+		float: right;
+		}
+		.usuario img{
+			float: left;
+			width: 35px;
+			height: 35px;
+		}
+		.usuario a{
+			float: left;
+			margin-top: 5px;
+			margin-left: 5px;			
+			text-align: center;
+			text-decoration: none;
+			color: black;
+		}
+	.botones{
+		height: 35px;
+		width: 220px;
+		float: right;
+		padding-top: 5px;
+		}
+		.login, .new {
+			height: 24px;
+			width: 100px;
+			padding: 4px 10px 4px 10px;
+			margin: 0px 10px;
+			font-family: 'Exo', sans-serif;
+			font-size: 10pt;
+			background-color: #9FEAA7;
+			border: none;
+			border-radius: 20px;
+			text-align: center;
+			text-decoration: none;
+			color: black;
+		}
+	/*____________REGISTRO Oculto__________________________________________________________*/
+.sesionCont{
+
+	z-index: 110;
+	position: absolute;
+    top: 0;
+    left: 58%; 
+    right: 0;
+    bottom: 0;
+    height: 200px;
+    width: 400px;
+	}.sesion{
+		margin: 0px auto 0px auto;		
+		height: 200px;
+		width:  400px;
+	    background-color: #9FEAA7;
+	    border-radius: 0 0 30px 30px;
+		box-shadow:0px 4px 3px rgba(0,0,0,.5);
+	}
+.formLog{
+	position: relative;
+	top: 25px;
+    left: 14%; 
+	height: 150px;
+	width:  340px;
+	}
+	.correo, .contra{
+		height: 28px;
+		width: 280px;
+		padding: 3px;
+		margin-bottom: -15px;
+		border: 3px solid white;
+		border-radius: 20px;
+		font-size: 13pt;		
+		font-family: 'Exo', sans-serif;
+	}
+	.f1, .f2{
+		position: relative;
+	    top: -27px;
+	    left: 295px; 
+		height: 30px; width: 30px;
+	}
+	.flechita1, .flechita2{
+		height: 30px; width: 30px;
+	    background-image: url("../img/wrong.png");
+	    border:2px solid white;
+	    border-radius: 70px;  
+	    display: none;
+	}
+	.oksesion{
+		margin-left: 25%;
+		margin-top: 0px;
+		height: 25px;
+		width: 120px;
+		padding: 3px;
+		border: none;
+		border-radius: 20px;
+		font-size: 12pt;		
+		font-family: 'Exo', sans-serif;
+		background-color: #89C1D4;
+		cursor: pointer;
+	}
+	.cancelsesion{
+		z-index: 200;
+		margin-left: 350px;
+		margin-top: 16px;
+		height: 25px;
+		width: 25px;
+		padding: 3px;
+		border: 2px solid white;
+		border-radius: 20px;
+		font-size: 12pt;		
+		font-family: 'Exo', sans-serif;
+		background-color: white;
+		color: black;
+		cursor: pointer;
+	}
+/*_____________________PARTE DEL LOGO___________________________________________________*/
+.cosasCont{
+	z-index: 100;
+	position: absolute;
+    top: 40px;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    height: 207px;
+	background-color: #EFEFEF;
+	}.cosas{
+		margin: 0px auto 0px auto;
+		display: block;
+		height: 207px;
+		width: 1200px;
+	}
+.climaCont, .buscarContT{
+	width: 300px;
+	text-align: center;
+	}
+.lugar, .fecha{
+	font-size: 15pt;
+	height: 60px;
+	} .lugar p, .fecha p {
+		margin-top: 5px;
+	}
+.elclima{
+	font-size: 15pt;
+	height: 87px;
+	}
+	.elclima a{
+		text-decoration: none;
+	}
+	.elclima p{
+		float: right;
+		margin: 25px 90px 0 0;
+	}
+.icon:before {
+	float: left;
+	margin-left: 90px;
+	font-size: 50pt;
+	font-family: 'MeteoconsRegular';
+	content: attr(data-icon);
+	}
+.logoCont{
+	width: 600px;
+	text-align: center;
+	}.logo{
+		height: 145px;
+		width: 558px;
+	} .logoCont p {
+		font-size: 20pt;
+		margin: 2px auto 0 auto;
+	}
+.buscarCont {
+	float: right;
+ 	height: 45px;
+	width:  300px;
+	padding-top: 7px;
+	}.buscarAlgo{
+	float: left;
+	font-family: 'Exo', sans-serif;
+	font-size: 11pt;
+	height: 30px;
+	width: 245px;
+	border: none;
+	border-radius: 30px 0 0 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+	}
+	.buscarOk{	
+	cursor: pointer;
+	height: 32px;
+	width: 45px;
+	background-color: #58C456;
+	border: none;
+	border-radius: 0 30px 30px 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-image: url('../img/lupa.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	}
+/*__________________________________HEADER______________________________________________*/
+.headerContMenu{
+	z-index: 100;
+	position: absolute;
+    top: 247px;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    background-color: #5F95B5;
+	height: 45px;
+	width: 100%;
+	}
+	.headerMenu{
+		display: block;
+		margin: 0px auto 0px auto;
+		height: 45px;
+		width: 1200px;
+	}
+	.headerMenu table {
+	 	font-size: 15pt;
+	 	height: 45px;
+		width: 1200px;
+		color: white;
+	  	text-shadow:   	0 0 5px rgba(0,0,0,.1),
+	              		0 1px 3px rgba(0,0,0,.3),
+	               		0 3px 5px rgba(0,0,0,.2),
+	               		0 5px 10px rgba(0,0,0,.25),
+	               		0 10px 10px rgba(0,0,0,.2),
+	               		0 20px 20px rgba(0,0,0,.15);
+		}
+		.headerMenu .home{
+			background-color: #89C1D4;
+			border-radius: 30px;
+			height: 30px;
+		}
+		.headerMenu td {
+		padding: 0 6px 0 6px;
+		text-align: center;
+		} 
+
+	.menu-fixed {
+		position:fixed;
+		z-index: 100;
+	    top: 0;
+	    left: 0; 
+	    right: 0;
+	    bottom: 0;
+	    background-color: #5F95B5;
+		height: 45px;
+		width: 100%;
+		box-shadow:0px 4px 3px rgba(0,0,0,.5);
+	}
+/*______________________________________________________________________________________*/
+.anunciosCont{
+	position: absolute;
+    top: 310px;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+	height: 960px;
+	}.anuncios{
+	display: block;
+	margin: 0px auto 5px auto;
+    height: 250px;
+    width: 1200px;
+		}.imgAnun{
+		height: 250px;
+	    width: 1200px;
+	    border-radius: 30px;
+		}
+	 .imgAnun, .imgAnun1, .imgAnun2, .imgAnun3, .imgAnun4{
+		-webkit-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
+				-moz-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
+				box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
+	}
+	.anuncios2{
+	display: block;
+	margin: 15px auto 5px auto;
+    height: 400px;
+    width: 1200px;
+		}.imgAnun1{
+		height: 400px;
+	    width: 1200px;
+	    border-radius: 30px;
+
+	}
+	.anuncios3{
+	margin: 5px auto 5px auto;
+    height: 300px;
+    width: 1200px;
+		}
+		.anuncios3 table{
+			height: 300px;
+	    	width: 1200px;
+		}
+		.anuncios3 td{
+		    height: 300px;
+		    width: 400px;
+		    padding: 5px;
+		}
+		.imgAnun2, .imgAnun3, .imgAnun4 {
+			height: 285px;
+		    width: 385px;
+		    border-radius: 30px;
+		}
+/*____________________________________FOOTER_________________________________________*/
+.piedepagCont{
+	position: absolute;
+    top: 1300px;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+	height: 300px;
+	background-color: #5F95B5;
+	}
+	.piedepag{
+		height: 300px;
+		width: 1200px;
+		margin: 0px auto;
+	}
+	hr{
+		border: 2px solid white;
+		box-shadow:0px 4px 3px rgba(0,0,0,.5);
+	}
+	.piedepag section {
+		display: table;
+		height: 255px;
+		width: 1200px;
+		color: white;
+		text-shadow:   	0 0 5px rgba(0,0,0,.1),
+	              		0 1px 3px rgba(0,0,0,.3),
+	               		0 3px 5px rgba(0,0,0,.2),
+	               		0 5px 10px rgba(0,0,0,.25),
+	               		0 10px 10px rgba(0,0,0,.2),
+	               		0 20px 20px rgba(0,0,0,.15);
+		}
+		.piedepag article{
+			display:table-cell;
+			padding-top: 6px;
+			width: 300px;
+			font-size: 13pt;
+		}
+	.piedepag ul{
+		margin-top: 0px;
+		list-style-type:none;
+	}
+	.tituloli{
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.lilo{margin-left: 100px; margin-bottom: 10px;}
+
+	.fb,.tt,.u2 {
+		display:block; 
+		height: 50px; width: 50px; 
+	    background-position: center top;
+	    background-repeat: no-repeat;
+	}
+	.fb{background-image: url('../img/fb.png');}
+	.tt{background-image: url('../img/twit.png');}
+	.u2{background-image: url('../img/u2.png');}
+
+		 .fb:hover{background-image: url('../img/fbh.png');}
+		 .tt:hover{background-image: url('../img/twith.png');}
+		 .u2:hover{background-image: url('../img/u2h.png');}
+/*___________________________________IR ARRIBA_______________________________________*/
+ #irarriba{
+        padding: 5px;
+        position: fixed;
+        bottom: 40px;
+        right: 70px;
+        width: 70px;
+        display: none;
+	    } #irarriba a{
+	    	text-decoration: none;
+	    } #irarriba img{    	
+	        right: 70px;
+	        width: 70px;
+	    }
