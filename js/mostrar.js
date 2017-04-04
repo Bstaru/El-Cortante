@@ -11,6 +11,14 @@ $(document).ready(function(){
  
     $('#cancelsesion').on('click',function() {
 
+      $(".correo").css ("border-color","#ffffff");
+      $(".contra").css ("border-color","#ffffff");
+      $(".flechita1").css ("display","none");
+      $(".flechita2").css ("display","none");
+
+      $(".correo").val('');
+      $(".contra").val('');
+
         $('#sesionCont').slideUp();
     });
  
