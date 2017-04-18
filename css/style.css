@@ -428,57 +428,32 @@ Colores:
 
 /*____________INDEX____________________________________________________________________*/
 	.anunciosCont{
-	position: absolute;
-    top: 310px;
-    left: 0; 
-    right: 0;
-    bottom: 0;
-    height: 1000px;
-	}.anuncios{
-	display: block;
-	margin: 0px auto 5px auto;
-    height: 250px;
-    width: 1200px;
-		}.imgAnun{
-		height: 250px;
-	    width: 1200px;
-	    border-radius: 30px;
+		position: absolute;
+	    top: 310px;
+	    left: 0; 
+	    right: 0;
+	    bottom: 0;
+	    height: 1000px;
 		}
-	 .imgAnun, .imgAnun1, .imgAnun2, .imgAnun3, .imgAnun4{
+		.anuncios{
+			margin: 0px auto 5px auto;
+		    width: 1200px;
+		}
+		.rowos{
+			margin-bottom: 40px;
+		}
+		.unaNoti{
+			display: inline-block;
+			margin: 0px 28px;
+		}
+		.imgAnun{
+
+		height: 300px; width: 540px;
 		-webkit-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
 				-moz-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
 				box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
-	}
-	.anuncios2{
-	display: block;
-	margin: 15px auto 5px auto;
-    height: 400px;
-    width: 1200px;
-		}.imgAnun1{
-		height: 400px;
-	    width: 1200px;
-	    border-radius: 30px;
+		}
 
-	}
-	.anuncios3{
-	margin: 5px auto 5px auto;
-    height: 300px;
-    width: 1200px;
-		}
-		.anuncios3 table{
-			height: 300px;
-	    	width: 1200px;
-		}
-		.anuncios3 td{
-		    height: 300px;
-		    width: 400px;
-		    padding: 5px;
-		}
-		.imgAnun2, .imgAnun3, .imgAnun4 {
-			height: 285px;
-		    width: 385px;
-		    border-radius: 30px;
-		}
 
 /*____________NEW______________________________________________________________________*/
 	.datosCont{
