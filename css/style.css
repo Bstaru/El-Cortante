@@ -511,6 +511,7 @@ Colores:
 			padding: 3px;
 			margin-bottom: 17px;
 		}
+
 	.fotito{
 		position: absolute;
 	    top: 565px;
@@ -582,7 +583,7 @@ Colores:
 	
 	.btnAcept{
 		position: absolute;
-	    top: 777px;
+	    top: 620px;
 	    left: 47%; 
 	    right: 0;
 	    bottom: 0;
@@ -649,6 +650,145 @@ Colores:
 		 	height: 270px;
 		 }
 
+/*____________NOTICIA SOLA_____________________________________________________________*/
+
+	.lanoticia{
+	position: absolute;
+    top: 300px;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    height: 985px;
+	}
+	.lanotiCont{
+		margin: 0px auto 0px auto;
+		display: block;
+		width: 1200px;
+	    max-height: 980px;
+	    overflow:scroll;
+	    overflow-x: hidden;
+	}
+	.Noticia{
+		float: left;
+		display: block;
+		width: 570px;
+	    background-color: #efefef;
+		text-align: center;
+		margin: 0 auto;
+		padding: 15px;
+		}
+		.textoNoti{text-align: justify;}
+		.textoNoti h4 {text-align: right;}
+		.Noticia img{width: 550px;}
+
+	.Commentar{
+		float: right;
+		display: block;
+		width: 585px;
+	    background-color: #fff;
+		margin: 0 auto;
+		}
+		.Comentt{
+			 width: 550px;
+			 height: 80px;
+			 margin: 5px auto;
+			 text-align: center;
+			}
+			.fotoComent{float: left;}
+				.fotoComent img {width: 63px; height: 63px;}
+			.coment{ 
+				width: 480px;	
+				float: right;
+				padding-top: 13px;				
+			 	border-radius: 0px 30px 30px 0px;
+			 	background-color: #89C1D4; 
+				}
+				.coment input {
+					height: 30px;
+					width: 350px;
+					font-size: 15pt;
+					font-family: 'Exo', sans-serif;
+					border: 1px solid white;
+					border-radius: 20px;
+					color: black;
+					margin-bottom: 17px;
+				}
+				.coment button{
+					height: 33px;
+					width: 100px;
+					padding: 3px;
+					border: 2px solid white;
+					border-radius: 20px;
+					font-size: 15pt;		
+					font-family: 'Exo', sans-serif;
+					background-color: #58C456;
+					cursor: pointer;
+				}
+
+	.Comentarios{
+		position: relative;		
+		margin: 15px;
+		}
+		.Commentar ul{
+			text-decoration: none;
+			list-style:none;
+			padding: 0;
+			}
+		.unComent{
+			margin: 5px;
+			background-color: #89C1D4;
+			border-radius: 0px 20px;
+			}
+			.unComent p{height: 70px;}
+			.btnComent{text-align: right;}
+			.btnComent button{
+					height: 27px;
+					width: 80px;
+					margin: 7px;
+					padding: 3px;
+					border: none;
+					border-radius: 20px;
+					font-size: 13pt;		
+					font-family: 'Exo', sans-serif;
+					background-color: #58C456;
+					cursor: pointer;
+			}
+		.unComentenComent{
+			margin: 5px 0 5px 25px;
+			background-color: #89C1D4;
+			}
+			.unComentenComent p{height: 70px;}
+
+	.Comentt2{
+			 width: 550px;
+			 height: 80px;
+			 margin: 0 auto;
+			 text-align: center;
+			}
+			.coment2{ 	
+				padding-top: 13px;			
+				}
+				.coment2 input {
+					height: 25px;
+					width: 300px;
+					font-size: 13pt;
+					font-family: 'Exo', sans-serif;
+					border: 1px solid white;
+					border-radius: 20px;
+					color: black;
+					margin-bottom: 17px;
+				}
+				.coment2 button{
+					height: 30px;
+					width: 80;
+					padding: 3px;
+					border: 1px solid white;
+					border-radius: 20px;
+					font-size: 13pt;		
+					font-family: 'Exo', sans-serif;
+					background-color: #58C456;
+					cursor: pointer;
+				}
 /*____________PERFIL___________________________________________________________________*/
 	.datosCont{
 	position: absolute;
@@ -727,24 +867,4 @@ Colores:
 
 			}
 
-/*____________NOTICIA SOLA_____________________________________________________________*/
 
-.lanoticia{
-	position: absolute;
-    top: 300px;
-    left: 0; 
-    right: 0;
-    bottom: 0;
-    height: 985px;
-	}
-	.lanotiCont{
-		margin: 0px auto 0px auto;
-		display: block;
-		width: 1200px;
-	    background-color: #9FEAA7;
-	}
-
-	.imgNoticia{
-		margin: 0px auto 0px auto;
-		}
-		.imgNoticia img{height: 400px;}
