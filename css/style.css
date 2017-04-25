@@ -70,7 +70,6 @@ Colores:
 		background-color: #9FEAA7;
 		}
 
-
 /*____________REGISTRO_________________________________________________________________*/
 
 
@@ -440,7 +439,7 @@ Colores:
 		    width: 1200px;
 		}
 		.rowos{
-			margin-bottom: 40px;
+			margin-bottom: 25px;
 		}
 		.unaNoti{
 			display: inline-block;
@@ -462,15 +461,13 @@ Colores:
     left: 0; 
     right: 0;
     bottom: 0;
-	height: 820px;
 	}.datos{
 	display: block;
 	margin: 0px auto 0px auto;
-    height: 830px;
     width: 1200px;
 	}
 	.formNew{		
-		height: 830px;
+		height: 965px;
 		width: 1200px;
 		margin: 0px auto 0px auto;
 		padding: 5px;
@@ -483,6 +480,7 @@ Colores:
 		float: left;
 		height: 800px;
 		width: 500px;
+		padding-top: 310px;
 		}
 		.descrip h3{
 			height: 45px;
@@ -498,7 +496,7 @@ Colores:
 		float: right;
 		height: 800px;
 		width: 700px;
-		padding-top: 20px;
+		padding-top: 330px;
 		}
 		.textos input, .gender, .type{
 			height: 45px;
@@ -512,45 +510,44 @@ Colores:
 			margin-bottom: 17px;
 		}
 
-	.fotito{
+	.fotito2{
 		position: absolute;
-	    top: 565px;
-	    left: 45%; 
+	    top: 0;
+	    left: 0; 
 	    right: 0;
 	    bottom: 0;
 		height: 260px;
-		width: 455px;
+		width: 255px;
+		margin: 0 auto;
 		}
 		.coso1{
 			display: block;
-			height: 260px;
-			width: 195px;
 			float: left;
 			}
 			.des{	
-			position:relative;		
-			height: 150px;
-			width: 150px;
-			color: white;
-			font-size: 15pt;		
-			font-family: 'Exo', sans-serif;
-			text-align: center;
-			margin-top: 90px;
-			t
-		}
+				position:relative;	
+				color: white;
+				font-size: 15pt;		
+				font-family: 'Exo', sans-serif;
+				text-align: center;
+			}
+
 		.coso{
-		position: relative;
-		top: -60px;
-		right: 50px;			
+			position: relative;
+			 top: 0;
+		    left: 0; 
+		    right: 0;
+		    bottom: 0;				
+			display: block;		
 			height: 260px;
 			width: 260px;
 			}			
 			.uploader {
 				position:relative;
-				top: 0;
+				 top: 0;
 			    left: 0; 
 			    right: 0;
-			    bottom: 0; 
+			    bottom: 0;					
 				overflow:hidden; 
 				height: 250px;
 				width: 250px;
@@ -563,8 +560,10 @@ Colores:
 			    position:absolute;
 			    width:250px;
 			    height:250px;
-			    top:-50px;
-			    left:0;
+			     top: 0;
+		    left: 0; 
+		    right: 0;
+		    bottom: 0;	
 			    z-index:2;
 			    opacity:0;
 			    cursor:pointer;
@@ -583,7 +582,7 @@ Colores:
 	
 	.btnAcept{
 		position: absolute;
-	    top: 620px;
+	    top: 920px;
 	    left: 47%; 
 	    right: 0;
 	    bottom: 0;
@@ -759,16 +758,16 @@ Colores:
 			}
 			.unComentenComent p{height: 70px;}
 
-	.Comentt2{
+	.Comentt2, .Comentt3{
 			 width: 550px;
 			 height: 80px;
 			 margin: 0 auto;
 			 text-align: center;
 			}
-			.coment2{ 	
+			.coment2, .coment3{ 	
 				padding-top: 13px;			
 				}
-				.coment2 input {
+				.coment2 input, .coment3 input {
 					height: 25px;
 					width: 300px;
 					font-size: 13pt;
@@ -778,7 +777,7 @@ Colores:
 					color: black;
 					margin-bottom: 17px;
 				}
-				.coment2 button{
+				.coment2 button, .coment3 button{
 					height: 30px;
 					width: 80;
 					padding: 3px;
@@ -789,6 +788,7 @@ Colores:
 					background-color: #58C456;
 					cursor: pointer;
 				}
+
 /*____________PERFIL___________________________________________________________________*/
 	.datosCont{
 	position: absolute;
@@ -867,4 +867,52 @@ Colores:
 
 			}
 
-
+/*____________BUSQUEDA_________________________________________________________________*/
+	.busquedas{
+		position: absolute;
+	    top: 310px;
+	    left: 0; 
+	    right: 0;
+	    bottom: 0;
+	    height: 975px;
+		}
+		.laBus{
+			margin: 0px auto ;
+			display: block;
+			width: 1200px;
+		    max-height: 970px;
+		    border-radius: 20px 0px 0px 20px;
+		    overflow:scroll;
+		    overflow-x: hidden;
+		    background-color: rgba(137,193,212,.5);
+			}
+		.laBus ul, .laBus li{
+			list-style: none;
+			text-decoration: none;
+			padding-left: 5px;
+			}
+		.laBus li{
+			font-size: 20px;
+			margin:  10px;
+			border-radius: 20px;
+			background-color: rgba(0,0,0,.2);
+			}
+		.laBus h3, .laBus h4,.laBus h5{
+			margin: 15px;
+			}
+			.imgResulNoti{
+				width: 40%;
+				}
+			.imgResulU{
+				height: 70px;
+				width: 70px;
+				display: block;
+				float: left;
+				margin-left: 13px;
+				margin-right:  13px;
+				}
+			.NomURes{
+					padding-top: 25px;
+					padding-bottom: 25px;
+					display: block;
+					}
