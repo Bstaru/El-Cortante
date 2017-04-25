@@ -13,152 +13,178 @@
 	<link rel="stylesheet" href="css/style2.css" />
 
     <link href="https://fonts.googleapis.com/css?family=Exo&amp;subset=latin-ext" rel="stylesheet">
+
+
+
 </head>
 
 <body>
 <!--HEADER INICIO-->
 
-<div class = "registroCont">
-	<div class = "linea"></div>	
-	<div class = "registro">
+	<div class = "registroCont">
+		<div class = "linea"></div>	
+		<div class = "registro">
 
-		<div class = "botones">
-			<a  href="new.html" class = "new" id = "new">Registrarme </a>
-			<a  href="#" class = "login" id = "login">Iniciar Sesión </a>
+			<div class = "botones">
+				<a  href="new.html" class = "new" id = "new">Registrarme </a>
+				<a  href="#" class = "login" id = "login">Iniciar Sesión </a>
+			</div>
+
+			<div class = "usuario">
+				<img src="img/user.png">
+				<a href="profile.html">Nombre de usuario</a>
+			</div>
 		</div>
+	</div>
 
-		<div class = "usuario">
-			<img src="img/user.png">
-			<a href="profile.html">Nombre de usuario</a>
+	<div class = "sesionCont" id ="sesionCont" style = "display:none;" >
+		<div class = "sesion">
+			<form class = "formLog" name = "formLog" action="iniciar" method="POST">
+				<input type = "text" class = "correo" required placeholder = "Correo electrónico"><div class = "f1"><img class = "flechita1" /></div>
+				<input type = "text" class = "contra" required placeholder = "Contraseña">
+				<div class = "f2"><img class = "flechita2" /></div>
+				<input type = "button" class = "oksesion" value = "Iniciar Sesión">
+			</form>
+			<input type = "button" class = "cancelsesion" id = "cancelsesion" value = "X">
 		</div>
 	</div>
-</div>
 
-<div class = "sesionCont" id ="sesionCont" style = "display:none;" >
-	<div class = "sesion">
-		<form class = "formLog" name = "formLog" action="iniciar" method="POST">
-			<input type = "text" class = "correo" required placeholder = "Correo electrónico"><div class = "f1"><img class = "flechita1" /></div>
-			<input type = "text" class = "contra" required placeholder = "Contraseña">
-			<div class = "f2"><img class = "flechita2" /></div>
-			<input type = "button" class = "oksesion" value = "Iniciar Sesión">
-		</form>
-		<input type = "button" class = "cancelsesion" id = "cancelsesion" value = "X">
+	<div class = "cosasCont">	
+		<div class = "cosas">
+		  	<table>
+				<tr>
+					<td class = "climaCont">
+						<div class = "lugar">
+							<p>Machete, ASP</p>
+						</div>
+						<div class = "elclima">
+							<div class="icon" data-icon="I"></div>
+							<p>21°C</p>
+						</div>
+						<div class = "fecha">
+							<p id = "fecha"></p>
+						</div>
+					</td>
+					<td class = "logoCont">
+						<a href="index.html"><img src="img/logo.png" class = "logo"></a>
+						<p>Periodismo directo</p>
+					</td>
+					<td class = "buscarContT">
+						<form class = "buscarCont">
+							<input type ="text" class = "buscarAlgo" placeholder = "Buscar...">
+							<input type = "button" class = "buscarOk" >
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>	
 	</div>
-</div>
 
-<div class = "cosasCont">	
-	<div class = "cosas">
-	  	<table>
-			<tr>
-				<td class = "climaCont">
-					<div class = "lugar">
-						<p>Machete, ASP</p>
-					</div>
-					<div class = "elclima">
-						<div class="icon" data-icon="I"></div>
-						<p>21°C</p>
-					</div>
-					<div class = "fecha">
-						<p id = "fecha"></p>
-					</div>
-				</td>
-				<td class = "logoCont">
-					<a href="index.html"><img src="img/logo.png" class = "logo"></a>
-					<p>Periodismo directo</p>
-				</td>
-				<td class = "buscarContT">
-					<form class = "buscarCont">
-						<input type ="text" class = "buscarAlgo" placeholder = "Buscar...">
-						<input type = "button" class = "buscarOk" >
-					</form>
-				</td>
-			</tr>
-		</table>
-	</div>	
-</div>
-
-<div class = "headerContMenu">
-	<div class = "headerMenu">
-		<table>
-			<tr> <!--tr es como el contenedor. El th es para el encabezado de ahi van los td-->
-				<td class = "home"><a href="index.html">INICIO</a></td>
-				<td><a href="noticias.html">LOCAL</a></td>				
-				<td><a href="">NACIONAL</a></td>
-				<td><a href="">INTERNACIONAL</a></td>
-				<td><a href="">CLIMA</a></td>
-				<td><a href="">DEPORTES</a></td>
-				<td><a href="">ESPECTÁCULOS</a></td>
-				<td><a href="">VIDA Y ESTILO</a></td>
-				<td><a href="">TRENDING TOPIC</a></td>
-			</tr>
-		</table>	
+	<div class = "headerContMenu">
+		<div class = "headerMenu">
+			<table>
+				<tr> <!--tr es como el contenedor. El th es para el encabezado de ahi van los td-->
+					<td class = "home"><a href="index.html">INICIO</a></td>
+					<td><a href="noticias.html">LOCAL</a></td>				
+					<td><a href="">NACIONAL</a></td>
+					<td><a href="">INTERNACIONAL</a></td>
+					<td><a href="">CLIMA</a></td>
+					<td><a href="">DEPORTES</a></td>
+					<td><a href="">ESPECTÁCULOS</a></td>
+					<td><a href="">VIDA Y ESTILO</a></td>
+					<td><a href="">TRENDING TOPIC</a></td>
+				</tr>
+			</table>	
+		</div>
 	</div>
-</div>
 
 <!--HEADER FIN-->
 
 <div class = "anunciosCont" >
 	<div class = "anuncios" >
+		<div id="effect-4">
+				<div class="rowos clearfix">
+				 	<div class="unaNoti" >
+						<figure>
+				            <img src="img/noti1.jpg" alt="" class="imgAnun">
+				         
+				            <figcaption>
+					            <h3>Blubber Brothers</h3>
+					            <span>Burnt Toast Creative</span>
+					            <a href="#" class="close-caption hidden">x</a>
+				             </figcaption>
 
-	<div class="carousel" style="height: 260px; background-color: gray; margin-bottom: 40px;">
-		algo aqui y asi
-	</div>
-	<div id="effect-4">
-		<div class="rowos clearfix">
-		 	<div class="unaNoti" >
-				<figure>
-		            <img src="img/noti1.jpg" alt="" class="imgAnun">
-		         
-		            <figcaption>
-			            <h3>Blubber Brothers</h3>
-			            <span>Burnt Toast Creative</span>
-			            <a href="#" class="close-caption hidden">x</a>
-		             </figcaption>
+				        </figure>
+		        	</div>
 
-		        </figure>
-        	</div>
+		        	<div class="unaNoti" >
+						<figure>
+				            <img src="img/noti2.jpg" alt="" class="imgAnun">
+				         
+				            <figcaption>
+					            <h3>Blubber Brothers</h3>
+					            <span>Burnt Toast Creative</span>
+					            <a href="#" class="close-caption hidden">x</a>
+				             </figcaption>
 
-        	<div class="unaNoti" >
-				<figure>
-		            <img src="img/noti2.jpg" alt="" class="imgAnun">
-		         
-		            <figcaption>
-			            <h3>Blubber Brothers</h3>
-			            <span>Burnt Toast Creative</span>
-			            <a href="#" class="close-caption hidden">x</a>
-		             </figcaption>
+				        </figure>
+		        	</div>
+				</div>
+				<div class="rowos clearfix">
+				 	<div class="unaNoti" >
+						<figure>
+				            <img src="img/noti1.jpg" alt="" class="imgAnun">
+				         
+				            <figcaption>
+					            <h3>Blubber Brothers</h3>
+					            <span>Burnt Toast Creative</span>
+					            <a href="#" class="close-caption hidden">x</a>
+				             </figcaption>
 
-		        </figure>
-        	</div>
+				        </figure>
+		        	</div>
+
+		        	<div class="unaNoti" >
+						<figure>
+				            <img src="img/noti2.jpg" alt="" class="imgAnun">
+				         
+				            <figcaption>
+					            <h3>Blubber Brothers</h3>
+					            <span>Burnt Toast Creative</span>
+					            <a href="#" class="close-caption hidden">x</a>
+				             </figcaption>
+
+				        </figure>
+		        	</div>
+				</div>
+				<div class="rowos clearfix">
+				 	<div class="unaNoti" >
+						<figure>
+				            <img src="img/noti1.jpg" alt="" class="imgAnun">
+				         
+				            <figcaption>
+					            <h3>Blubber Brothers</h3>
+					            <span>Burnt Toast Creative</span>
+					            <a href="#" class="close-caption hidden">x</a>
+				             </figcaption>
+
+				        </figure>
+		        	</div>
+
+		        	<div class="unaNoti" >
+						<figure>
+				            <img src="img/noti2.jpg" alt="" class="imgAnun">
+				         
+				            <figcaption>
+					            <h3>Blubber Brothers</h3>
+					            <span>Burnt Toast Creative</span>
+					            <a href="#" class="close-caption hidden">x</a>
+				             </figcaption>
+
+				        </figure>
+		        	</div>
+				</div>
 		</div>
-		<div class="rowos clearfix">
-		 	<div class="unaNoti" >
-				<figure>
-		            <img src="img/noti1.jpg" alt="" class="imgAnun">
-		         
-		            <figcaption>
-			            <h3>Blubber Brothers</h3>
-			            <span>Burnt Toast Creative</span>
-			            <a href="#" class="close-caption hidden">x</a>
-		             </figcaption>
-
-		        </figure>
-        	</div>
-
-        	<div class="unaNoti" >
-				<figure>
-		            <img src="img/noti2.jpg" alt="" class="imgAnun">
-		         
-		            <figcaption>
-			            <h3>Blubber Brothers</h3>
-			            <span>Burnt Toast Creative</span>
-			            <a href="#" class="close-caption hidden">x</a>
-		             </figcaption>
-
-		        </figure>
-        	</div>
-		</div>
-	</div>
 	</div>
 
 </div>
