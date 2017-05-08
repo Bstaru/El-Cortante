@@ -8,10 +8,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `u_usuario`(
     IN telef bigint(20),
     IN fecha date,
     IN tipo enum('admin','reportero','usuario'),
-    IN activo bit(1)
+    IN activo bit(1),
+    IN imagen blob
 )
 BEGIN
 	UPDATE usuario
+    
 	SET contra = MD5(con),
 		nombreU = nombre,
 		AP =ApP,
@@ -20,6 +22,7 @@ BEGIN
 		tel = telef,
 		fechNac = fecha,
 		tipoU = tipo,
-        activo = activo
+        activo = activo,
+        imagen = imagen
 		WHERE idUsuario = id;
 END

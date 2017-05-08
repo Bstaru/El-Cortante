@@ -1,13 +1,13 @@
 use elcortante
 DELIMITER //
-create procedure d_usuario(
+create procedure d_noticia(
 IN id smallint(5)
 )
 BEGIN
 
-UPDATE usuario
+UPDATE noticia
 SET activo = 0
-WHERE idMedia = id;
+WHERE idNoti = id;
 END
 //
 

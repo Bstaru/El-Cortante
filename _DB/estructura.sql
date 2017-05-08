@@ -10,6 +10,7 @@ CREATE TABLE `usuario` (
   `fechNac` date DEFAULT NULL,
   `tipoU` enum('admin','reportero','usuario') DEFAULT NULL,
   `activo` bit(1) NOT NULL,
+  `imagen` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 

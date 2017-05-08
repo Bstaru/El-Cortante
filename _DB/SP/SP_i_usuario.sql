@@ -6,9 +6,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `i_usuario`(
     IN corr varchar(30),
     IN telef bigint(20),
     IN fecha date,
-    IN tipo enum('admin','reportero','usuario')
+    IN tipo enum('admin','reportero','usuario'),
+    IN pic varchar(255)
 )
 BEGIN
-INSERT INTO usuario (contra,nombreU,AP,AM,email,tel,fechNac,tipoU,activo)
-VALUES (MD5(con),nombre,ApP,ApM,corr,telef,fecha,tipo,1);
+INSERT INTO usuario (contra,nombreU,AP,AM,email,tel,fechNac,tipoU,activo,picture)
+VALUES (MD5(con),nombre,ApP,ApM,corr,telef,fecha,tipo,1,pic);
 END
