@@ -3,7 +3,7 @@ $(function(){
         $(document).on("scroll", function(){
             var desplazamientoActual = $(document).scrollTop();
             var controlArriba = $("#irarriba");
-            console.log("Estoy en " , desplazamientoActual); 
+            //console.log("Estoy en " , desplazamientoActual); 
             if(desplazamientoActual > 100 && controlArriba.css("display") == "none"){
                 controlArriba.fadeIn(500);
             }
