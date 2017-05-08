@@ -32,7 +32,7 @@ Colores:
 		}  a:hover{
 			color: #9FEAA7;
 			}
-			.login:hover, .new:hover{
+			.login:hover, .new:hover, .logout:hover{
 				color: black;
 			}
 
@@ -114,11 +114,12 @@ Colores:
 			}
 		.botones{
 			height: 35px;
-			width: 220px;
+			width: 250px;
 			float: right;
 			padding-top: 5px;
+			text-align: center;
 			}
-			.login, .new {
+			.login, .new , .logout, .newNoticia,.admon{
 				height: 24px;
 				width: 100px;
 				padding: 4px 10px 4px 10px;
@@ -132,6 +133,7 @@ Colores:
 				text-decoration: none;
 				color: black;
 			}
+			
 	/*____________REGISTRO Oculto__________________________________________________________*/
 	.sesionCont{
 
@@ -168,6 +170,7 @@ Colores:
 			font-size: 13pt;		
 			font-family: 'Exo', sans-serif;
 		}
+		.contra{-webkit-text-security: square;}
 		.f1, .f2{
 			position: relative;
 		    top: -27px;
@@ -424,7 +427,6 @@ Colores:
 	        width: 70px;
 	    }
 
-
 /*____________INDEX____________________________________________________________________*/
 	.anunciosCont{
 		position: absolute;
@@ -453,10 +455,9 @@ Colores:
 				box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
 		}
 
-
-/*____________NEW______________________________________________________________________*/
+/*____________NEW_____UPDATE____________________________________________________________*/
 	.datosCont{
-	position: absolute;
+	position: relative;
     top: 305px;
     left: 0; 
     right: 0;
@@ -466,7 +467,7 @@ Colores:
 	margin: 0px auto 0px auto;
     width: 1200px;
 	}
-	.formNew{		
+	.formNew, .formEdit{		
 		height: 965px;
 		width: 1200px;
 		margin: 0px auto 0px auto;
@@ -488,7 +489,7 @@ Colores:
 			font-family: 'Exo', sans-serif;
 			color: black;
 			padding: 3px;			
-			margin: 20px 10px 20px 0px;
+			margin: 15px 10px 0px 0px;
 			text-align: right;
 			cursor: default;
 		}
@@ -509,7 +510,23 @@ Colores:
 			padding: 3px;
 			margin-bottom: 17px;
 		}
-
+		.contraa{ -webkit-text-security: square;}
+	.f3{
+		float: right;
+		margin: 2px 195px 0 0;
+		height: 40px; width: 40px;
+		}
+		.flechita3,.flechita4,.flechita5,.flechita6,
+		.flechita7,.flechita8,.flechita9,.flechita10{
+			height: 40px; width: 40px;
+		    background-image: url("../img/wrong.png");
+		    background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 50% 50%;
+		    border:2px solid white;
+		    border-radius: 70px;  
+		    display: none;
+		}
 	.fotito2{
 		position: absolute;
 	    top: 0;
@@ -582,14 +599,14 @@ Colores:
 	
 	.btnAcept{
 		position: absolute;
-	    top: 920px;
+	    top: 900px;
 	    left: 47%; 
 	    right: 0;
 	    bottom: 0;
 		height: 30px;
 		width: 120px;
 		}
-		.oknew{
+		.oknew, .okedit{
 		height: 33px;
 		width: 120px;
 		padding: 3px;
@@ -599,6 +616,106 @@ Colores:
 		font-family: 'Exo', sans-serif;
 		background-color: #89C1D4;
 		cursor: pointer;
+	}
+
+
+/*____________PERFIL___________________________________________________________________*/
+	.datosCont{
+	position: absolute;
+    top: 305px;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+	height: 820px;
+	}.datos{
+		display: block;
+		margin: 0px auto 0px auto;
+	    height: 820px;
+	    width: 1200px;    
+		padding: 5px;
+		border-radius: 50px;
+		background-color: #58C456;		
+		box-shadow:0px 4px 3px rgba(0,0,0,.5);
+	}
+	.fotito{
+		position:absolute;  
+		top: 20px;
+	    left: 300px; 
+		height: 260px;
+		width: 260px;
+			}.fotito img{
+			    width:250px;
+			    height:250px;
+			    border:none;
+				border-radius: 130px;		
+				box-shadow:0px 4px 3px rgba(0,0,0,.5);
+			}
+
+	.alldata {
+		height: 780px; width: 1155px;
+		margin: 20px auto;
+		}
+		.alldata hr{			
+			border: 1px solid white;
+			box-shadow:0px 2px 0px rgba(0,0,0,.5);
+		}
+		.alldata li, .alldata h3{
+			color: white;
+				text-shadow:   	0 0 5px rgba(0,0,0,.1),
+	              		0 1px 3px rgba(0,0,0,.3),
+	               		0 3px 5px rgba(0,0,0,.2),
+	               		0 5px 10px rgba(0,0,0,.25),
+	               		0 10px 10px rgba(0,0,0,.2),
+	               		0 20px 20px rgba(0,0,0,.15);
+		}
+		.cuadro1{
+			height: 245px; width: 500px;
+			margin: 20px 5px 20px 400px;
+			}
+			.cuadro1 ul{
+			font-size: 18pt;		
+			list-style-type:none;
+			}
+			.cuadro1 li {
+			margin-bottom: 20px;
+			}
+		.cuadro2, .cuadro3{
+			height: 250px; width: 1155px;
+			}
+			.cuadro2 h3, .cuadro3 h3{
+				font-size: 15pt;
+				margin: 5px auto 0px auto;
+				text-align: center;
+			}
+			.cuadro2 article, .cuadro3 article{
+				display: inline-block;
+				height: 205px; width: 285px;
+
+				-webkit-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
+				-moz-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
+				box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
+
+			}
+
+	.hacerNoti{
+		position: absolute;
+		top: 100px;
+		left: 80%;
+		height: 70px; width: 70px;
+	}
+	.editPro{
+		position: absolute;
+		top: 20px;
+		left: 80%;
+		height: 70px; width: 70px;
+	}
+	.hacerNoti:hover, .editPRo:hover{
+		transform: scale(1.05);
+	}
+	.hacerNoti img, .editPRo img{
+		display: block;
+		margin: 0 auto;
+		height: 70px; width:  70px;
 	}
 
 /*____________NOTICIAS_________________________________________________________________*/
@@ -659,6 +776,7 @@ Colores:
     bottom: 0;
     height: 985px;
 	}
+
 	.lanotiCont{
 		margin: 0px auto 0px auto;
 		display: block;
@@ -679,6 +797,15 @@ Colores:
 		.textoNoti{text-align: justify;}
 		.textoNoti h4 {text-align: right;}
 		.Noticia img{width: 550px;}
+
+		.imglaco{
+			float: right;
+			height: 70px; width: 70px;
+			}
+			.imglaco:hover{transform: scale(1.05);}
+			.imglaco img{
+				height: 60px; width: 60px;
+			}
 
 	.Commentar{
 		float: right;
@@ -789,83 +916,87 @@ Colores:
 					cursor: pointer;
 				}
 
-/*____________PERFIL___________________________________________________________________*/
-	.datosCont{
-	position: absolute;
-    top: 305px;
-    left: 0; 
-    right: 0;
-    bottom: 0;
-	height: 820px;
-	}.datos{
+/*____________NEW NOTICIA______________________________________________________________*/
+	.datosNN{
+		position: absolute;
+	    top: 155px;
+	    left: 0; 
+	    right: 0;
+	    bottom: 0;
+	}
+	.datosNN{
 		display: block;
-		margin: 0px auto 0px auto;
-	    height: 820px;
-	    width: 1200px;    
+		margin: 0px auto;
+	    width: 1200px;
+		}
+	.formNN{		
+		height: 965px;
+		width: 1200px;
+		margin: 0px auto;
 		padding: 5px;
+		background-color: white;
 		border-radius: 50px;
 		background-color: #58C456;		
 		box-shadow:0px 4px 3px rgba(0,0,0,.5);
-	}
-	.fotito{
-		position:absolute;  
-		top: 20px;
-	    left: 300px; 
-		height: 260px;
-		width: 260px;
-			}.fotito img{
-			    width:250px;
-			    height:250px;
-			    border:none;
-				border-radius: 130px;		
-				box-shadow:0px 4px 3px rgba(0,0,0,.5);
-			}
-
-	.alldata {
-		height: 780px; width: 1155px;
-		margin: 20px auto;
 		}
-		.alldata hr{			
-			border: 1px solid white;
-			box-shadow:0px 2px 0px rgba(0,0,0,.5);
-		}
-		.alldata li, .alldata h3{
-			color: white;
-				text-shadow:   	0 0 5px rgba(0,0,0,.1),
-	              		0 1px 3px rgba(0,0,0,.3),
-	               		0 3px 5px rgba(0,0,0,.2),
-	               		0 5px 10px rgba(0,0,0,.25),
-	               		0 10px 10px rgba(0,0,0,.2),
-	               		0 20px 20px rgba(0,0,0,.15);
-		}
-		.cuadro1{
-			height: 245px; width: 500px;
-			margin: 20px 5px 20px 400px;
-			}
-			.cuadro1 ul{
-			font-size: 18pt;		
-			list-style-type:none;
-			}
-			.cuadro1 li {
-			margin-bottom: 20px;
-			}
-		.cuadro2, .cuadro3{
-			height: 250px; width: 1155px;
-		}
-			.cuadro2 h3, .cuadro3 h3{
-				font-size: 15pt;
-				margin: 5px auto 0px auto;
-				text-align: center;
-			}
-			.cuadro2 article, .cuadro3 article{
+	
+		.dataNN{ padding: 30px;
+				margin: 0;
+				width: 415px; 
 				display: inline-block;
-				height: 205px; width: 285px;
-
-				-webkit-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
-				-moz-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
-				box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
-
 			}
+			.dataNN h1, .data input{ 
+				display: inline-block; 
+				margin: 0 15px 15px 0;
+			}
+			.dataNN h1{
+				font-size: 29px; 
+				padding: 4.5px  0 0 0;
+			}
+			.dataNN input{ 
+				font-size: 25px;
+				padding: 4.5px;
+				border: none;
+				border-radius: 30px;
+			}
+			.dataNN textarea{
+				border: none;
+				border-radius: 30px;
+				margin: 0px; width: 412px; height: 192px; 
+			}
+
+		.dataNN2{
+				margin: 0;
+				padding: 30px;
+				width: 415px;
+				display: inline-block;
+			}.dataNN2 textarea{
+				border: none;
+				border-radius: 30px;
+				margin: 0px; width: 412px; height: 192px; 
+			}
+
+
+	.btnAcept2{
+		position: absolute;
+	    top: 920px;
+	    left: 47%; 
+	    right: 0;
+	    bottom: 0;
+		height: 30px;
+		width: 120px;
+		}
+		.oknew{
+		height: 33px;
+		width: 120px;
+		padding: 3px;
+		border: 2px solid white;
+		border-radius: 20px;
+		font-size: 15pt;		
+		font-family: 'Exo', sans-serif;
+		background-color: #89C1D4;
+		cursor: pointer;
+	}
 
 /*____________BUSQUEDA_________________________________________________________________*/
 	.busquedas{
