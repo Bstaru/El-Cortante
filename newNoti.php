@@ -3,6 +3,8 @@
 require('php/conection.php');
 session_start();
 
+//$query = $conexion -> query ("CALL s_seccion");
+
 if(	isset($_SESSION["IdUserReg"])){ ?>
 	<style>
 		.usuario, .logout{
@@ -14,14 +16,29 @@ if(	isset($_SESSION["IdUserReg"])){ ?>
 	</style>
 <?php
 
-	$idU = $_SESSION["IdUserReg"];
-	$Nombre = $_SESSION['NombreUserR'];
-	$ApP = $_SESSION['APU'];
-	$ApM = $_SESSION['AMU'];
-	$Tel = $_SESSION['telU'];
-	$FeN = $_SESSION['fNacU'];
-	$TipU = $_SESSION['tipU'];
+	$idU = $_SESSION["IdUserReg"];	
+	$sql = "CALL s_usuario('".$idU."');";
+	echo($sql);
 
+	$result=$conexion->query($sql);
+	$rows = $result->num_rows;
+
+	if($rows > 0){
+		$row = $result->fetch_assoc();
+
+		$Nombre = $row['nombreU'];
+		$ApP = $row['AP'];
+		$ApM = $row['AM'];
+
+		echo("$rows");
+		}
+
+	else{
+		echo("chale :c");
+        header("../index.php");
+	}
+	
+	$TipU = $_SESSION['tipU'];
 	if ($TipU == 'reportero') {?>
 		<style>
 			.newNoticia{
@@ -153,77 +170,112 @@ else{?>
 
 <div class = "datosNN">
 	<div class = "datosNN">
-		<form class = "formNN" name = "formNN" action="index.php" method="POST">
+		<form class = "formNN" name = "formNN" action="php/regNoti.php" method="POST">
+			<div class="dataNN" >
 
-		<div class="dataNN">
-			<h1>Título: </h1><input type="text" class="titulo" required placeholder="Título">
-			<br>
-			<h1>Descripcion: </h1>		
-			<textarea class="descp"></textarea>
-		</div>
-		
-		<div class="dataNN2">			
-			<h1>Cuerpo: </h1>		
-			<textarea class="cuerpo"></textarea>
-		</div>
-		
+				<input type="text" name="userNN" class="userNN" value="<?php echo $idU ?>" style = "display: none;">
 
+				<h2>Título: </h2><input type="text" name="titu" class="titulo" required placeholder="Título">
+				<h2>Sección: </h2>
+
+				<select name = "section" class = "section"  required placeholder = "Seccion">
+	  					<?php
+	  					//s$conexion = '';
+						$query = $conexion -> query ("CALL s_seccion");
+			          	while ($valores = mysqli_fetch_array($query)) {				
+			            	echo '<option name = "seccion" value = "'.$valores[idSec].'">'.$valores[nomSec].'</option>';				
+			          }
+			        ?>
+
+				</select>
+
+				<h2>Descripcion: </h2>		
+				<textarea name = "desc" class="descp"></textarea>
+			</div>
+			<div class="dataNN3">
+				<div class="formOKfn">
+					<input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+					<div class="fileUpload okfile">
+						<span>Escoger</span>
+						 <input id="uploadBtn" type="file" class="upload2" />
+					</div>
+
+					<input type="button" name="okFotoN" class="okFotoN" id="okFotoN" value="Ok">
+
+					<script>
+						document.getElementById("uploadBtn").onchange = function () {
+							document.getElementById("uploadFile").value = this.value;
+						};
+					</script>
+				</div>
+
+				<div  id = "scroll" class="contFotos" style="background-color: white;">
+				 	<img id="profile-img-tag" src="img/1-blubber-brothers.jpg">
+				 	<video>
+	  					<source src="img/nya.mp4" type="video/mp4">
+				 	</video>
+				</div>
+			</div>		
+			<div class="dataNN2">			
+				<h2>Cuerpo: </h2>		
+				<textarea name = "cue" class="cuerpo"></textarea>
+			</div>	
 			<div class = "btnAcept2">
-				<input type = "button" class = "oknew" value = "Aceptar">
+				<input type = "button" class = "oknewN" value = "Aceptar">
 			</div>
 		</form>
 	</div>
 </div>
 
 <!--FOOTER INICIO-->
-<div class = "piedepagCont">
-	<div class = "piedepag">
-		<section>
-			<article>
+	<div class = "piedepagCont">
+		<div class = "piedepag">
+			<section>
+				<article>
+						<ul>
+						  <li class = "tituloli">EL CORTANTE</li>
+						  <hr>
+						  <li><a href="">Mi Perfil</a></li>
+						  <li><a href="">Subscribirme</a></li>
+						  <li><a href="">Configuraciones</a></li>
+				</article>
+				<article>
+						<ul>
+						  <li  class = "tituloli">NOTICIAS</li>
+						  <hr>
+						  <li><a href="">Locales</a></li>
+						  <li><a href="">Nacionales</a></li>
+						  <li><a href="">Internacional</a></li>
+						  <li><a href="">Economía</a></li>
+						  <li><a href="">Clima</a></li>
+						  <li><a href="">Deportes</a></li>
+						  <li><a href="">Espectáculos</a></li>
+						  <li><a href="">Vida y Estilo</a></li>
+						  <li><a href="">Tendencias</a></li>
+						</ul>
+				</article>
+				<article>	
+						<ul>
+						  <li class = "tituloli">INFORMACIÓN</li>
+						  <hr>
+						  <li><a href="">Reporteros</a></li>
+						  <li><a href="">Acerca de</a></li>
+						  <li><a href="">Contáctanos</a></li>
+						</ul>
+				</article>
+				<article>
 					<ul>
-					  <li class = "tituloli">EL CORTANTE</li>
-					  <hr>
-					  <li><a href="">Mi Perfil</a></li>
-					  <li><a href="">Subscribirme</a></li>
-					  <li><a href="">Configuraciones</a></li>
-			</article>
-			<article>
-					<ul>
-					  <li  class = "tituloli">NOTICIAS</li>
-					  <hr>
-					  <li><a href="">Locales</a></li>
-					  <li><a href="">Nacionales</a></li>
-					  <li><a href="">Internacional</a></li>
-					  <li><a href="">Economía</a></li>
-					  <li><a href="">Clima</a></li>
-					  <li><a href="">Deportes</a></li>
-					  <li><a href="">Espectáculos</a></li>
-					  <li><a href="">Vida y Estilo</a></li>
-					  <li><a href="">Tendencias</a></li>
-					</ul>
-			</article>
-			<article>	
-					<ul>
-					  <li class = "tituloli">INFORMACIÓN</li>
-					  <hr>
-					  <li><a href="">Reporteros</a></li>
-					  <li><a href="">Acerca de</a></li>
-					  <li><a href="">Contáctanos</a></li>
-					</ul>
-			</article>
-			<article>
-				<ul>
-					  <li class = "tituloli">SIGUENOS</li>
-					  <hr>
-					  <li class = "lilo"><a href="" class = "fb"></a></li>
-					  <li class = "lilo"><a href="" class = "tt"></a></li>
-					  <li class = "lilo"><a href="" class = "u2"></a></li>
-					  <li style = "padding-left: 40px;">&copy 2017 EL CORTANTE</li>
-					</ul>
-			</article>				
-		</section>	
+						  <li class = "tituloli">SIGUENOS</li>
+						  <hr>
+						  <li class = "lilo"><a href="" class = "fb"></a></li>
+						  <li class = "lilo"><a href="" class = "tt"></a></li>
+						  <li class = "lilo"><a href="" class = "u2"></a></li>
+						  <li style = "padding-left: 40px;">&copy 2017 EL CORTANTE</li>
+						</ul>
+				</article>				
+			</section>	
+		</div>
 	</div>
-</div>
 <!--FOOTER FIN-->
 
 <div id="irarriba">
@@ -236,6 +288,8 @@ else{?>
 	<script type="text/javascript" src="js/mostrar.js" ></script>	
 	<script type="text/javascript" src="js/verFoto.js" ></script>
 	<script type="text/javascript" src="js/verFecha.js" ></script>
+	<script type="text/javascript" src="js/verFotosN.js" ></script>	
+	<script type="text/javascript" src="js/NuevaNoti.js" ></script>
 </body>
 
 </html>

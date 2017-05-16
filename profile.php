@@ -14,13 +14,31 @@ if( isset($_SESSION["IdUserReg"]) ){ ?>
 	</style>
 	<?php
 
-	$idU = $_SESSION["IdUserReg"];
-	$Nombre = $_SESSION['NombreUserR'];
-	$ApP = $_SESSION['APU'];
-	$ApM = $_SESSION['AMU'];
-	$Tel = $_SESSION['telU'];
-	$FeN = $_SESSION['fNacU'];
-	$TipU = $_SESSION['tipU'];
+	$idU = $_SESSION["IdUserReg"];	
+	$sql = "CALL s_usuario('".$idU."');";
+	echo($sql);
+
+	$result=$conexion->query($sql);
+	$rows = $result->num_rows;
+
+	if($rows > 0){
+		$row = $result->fetch_assoc();
+
+		$Nombre = $row['nombreU'];
+		$ApP = $row['AP'];
+		$ApM = $row['AM'];
+		$Tel = $row['tel'];
+		$FeN = $row['fechNac'];
+		$TipU = $row['tipoU'];
+		$Con = $row['contra'];
+
+		echo("$rows");
+		}
+
+	else{
+		echo("chale :c");
+        header("../index.php");
+	}
 
 	if ($TipU == 'reportero') {?>
 		<style>
@@ -39,6 +57,7 @@ if( isset($_SESSION["IdUserReg"]) ){ ?>
 	<?php
 	}	
 }
+
 else{?>
 	<style>
 		.usuario, .logout{

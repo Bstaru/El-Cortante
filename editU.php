@@ -14,16 +14,32 @@ if(	isset($_SESSION["IdUserReg"])){ ?>
 	</style>
 <?php
 
-	$idU = $_SESSION["IdUserReg"];
-	$Con = 	$_SESSION['ContraU'];
-	$Nombre = $_SESSION['NombreUserR'];
-	$ApP = $_SESSION['APU'];
-	$ApM = $_SESSION['AMU'];
-	$EmU = $_SESSION['MailU'];
-	$Tel = $_SESSION['telU'];
-	$FeN = $_SESSION['fNacU'];
-	$TipU = $_SESSION['tipU'];
+	$idU = $_SESSION["IdUserReg"];	
+	$sql = "CALL s_usuario('".$idU."');";
+	echo($sql);
 
+	$result=$conexion->query($sql);
+	$rows = $result->num_rows;
+
+	if($rows > 0){
+		$row = $result->fetch_assoc();
+
+		$Nombre = $row['nombreU'];
+		$ApP = $row['AP'];
+		$ApM = $row['AM'];
+		$Tel = $row['tel'];
+		$FeN = $row['fechNac'];
+		$TipU = $row['tipoU'];
+		$EmU = $row['email'];
+		$Con = $row['contra'];
+
+		echo("$rows");
+		}
+
+	else{
+		echo("chale :c");
+        header("../index.php");
+	}
 	if ($TipU == 'reportero') {?>
 		<style>
 			.newNoticia{
@@ -159,7 +175,7 @@ else{?>
 <div class = "datosCont">
 	<div class = "datos">
 
-		<form action="php/editUserr.php" class="formEdit" name="formEdit" method="POST" enctype="multipart/form-data">
+		<form action="php/editUser.php" class="formEdit" name="formEdit" method="POST" enctype="multipart/form-data">
 
 			<div class = "descrip">
 				<h3>Nombre</h3>		
@@ -182,7 +198,7 @@ else{?>
 
 				<input type = "text" class = "tel" value = "<?php echo $Tel ?>" name = "telE"><div class = "f3"><img class = "flechita6" /></div>
 
-				<select name = "typeE" class = "type"  rvalue = "<?php echo $tipU ?>" >
+				<select name = "typeE" class = "type"  value = "<?php echo $TipU ?>" >
 
 	  				<option class = "op" value="usuario">Lector</option>
 
@@ -196,7 +212,7 @@ else{?>
 
 				<input type = "text" class = "mail" value = "<?php echo $EmU ?>"  name="emailE"><div class = "f3"><img class = "flechita9" /></div>
 
-				<input type = "text" class = "contraa" value = "<?php echo $Con ?>" name="contraaE"><div class = "f3"><img class = "flechita10" /></div>
+				<input type = "text" class = "contraa" value = "<?php echo $Con ?>" placeholder="nueva contraseña" name="contraaE"><div class = "f3"><img class = "flechita10" /></div>
 								
 			</div>
 

@@ -13,7 +13,6 @@ if(	isset($_SESSION["IdUserReg"])){ ?>
 		}
 	</style>
 <?php
-
 	$idU = $_SESSION["IdUserReg"];
 	$Nombre = $_SESSION['NombreUserR'];
 	$ApP = $_SESSION['APU'];
