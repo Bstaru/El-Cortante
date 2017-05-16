@@ -940,41 +940,113 @@ Colores:
 		box-shadow:0px 4px 3px rgba(0,0,0,.5);
 		}
 	
-		.dataNN{ padding: 30px;
+		.dataNN{ 
+				padding: 30px 30px 0 30px;
 				margin: 0;
-				width: 415px; 
-				display: inline-block;
-			}
-			.dataNN h1, .data input{ 
-				display: inline-block; 
-				margin: 0 15px 15px 0;
-			}
-			.dataNN h1{
-				font-size: 29px; 
-				padding: 4.5px  0 0 0;
-			}
-			.dataNN input{ 
-				font-size: 25px;
-				padding: 4.5px;
-				border: none;
-				border-radius: 30px;
-			}
-			.dataNN textarea{
-				border: none;
-				border-radius: 30px;
-				margin: 0px; width: 412px; height: 192px; 
-			}
-
-		.dataNN2{
-				margin: 0;
-				padding: 30px;
 				width: 415px;
 				display: inline-block;
-			}.dataNN2 textarea{
-				border: none;
-				border-radius: 30px;
-				margin: 0px; width: 412px; height: 192px; 
-			}
+				}
+				.dataNN h2, .data input{ 
+					display: inline-block; 
+					margin: 0 15px 15px 0;
+				}
+				.dataNN h2{
+					width: 100px;
+					padding: 4.5px  0 0 0;
+				}
+				.dataNN input{
+					width: 300px;
+					font-size: 25px;
+					padding: 4.5px;
+					border: 1px solid white;
+					border-radius: 30px;
+				}
+				.dataNN textarea{
+					border: 1px solid white;
+					border-radius: 30px;
+					font-size: 25px;
+					padding: 10px;
+					margin: 0px; 
+					width: 412px; height: 235px; 
+				}
+				.section{
+					width: 295px;
+					font-size: 25px;
+					font-family: 'Exo', sans-serif;
+					border: 1px solid white;
+					border-radius: 30px;
+					color: black;
+					padding: 3px;
+				}
+		.dataNN2{
+				margin: 0;
+				padding:0 30px;
+				width: 1135px;
+				display: inline-block;
+				}.dataNN2 textarea{
+					border: 1px solid white;
+					border-radius: 30px;				
+					font-size: 25px;
+					padding: 10px;
+					margin: 0px; 
+					width: 1145px; height: 400px; 
+				}
+		.dataNN3{
+				margin: 0;
+				padding:0;
+				width: 700px;
+				display: inline-block;
+				}
+				.formOKfn{
+					margin: 10px 0px;
+				}
+				.okfile, .okFotoN{
+					width: 70px;
+					padding: 3px;
+					text-align: center;
+					border:none;
+					border-radius: 20px;
+					font-size: 13pt;		
+					font-family: 'Exo', sans-serif;
+					background-color: #89C1D4;
+					cursor: pointer;
+					margin-left:20px; 
+				}
+					#uploadFile{
+						width: 300px;
+						padding: 3px;
+						border:none;
+						border-radius: 20px;
+						font-size: 13pt;	
+						font-family: 'Exo', sans-serif;	
+					}
+					.fileUpload {
+					    position: relative;
+					    overflow: hidden;
+					    display: inline;
+					}
+					.fileUpload input.upload2 {
+					    position: absolute;
+					    top: 0;
+					    right: 0;
+					    margin: 0;
+					    padding: 0;
+					    font-size: 20px;
+					    cursor: pointer;
+					    opacity: 0;
+					    filter: alpha(opacity=0);
+					}
+				.contFotos{
+					width: 700px;
+					height: 350px;
+					border-radius: 10px;
+					overflow-x: auto; 
+					}
+					.contFotos img, .contFotos video{
+						max-width: 200px;
+						margin: 10px;
+					}
+
 
 
 	.btnAcept2{
@@ -986,7 +1058,7 @@ Colores:
 		height: 30px;
 		width: 120px;
 		}
-		.oknew{
+		.oknewN{
 		height: 33px;
 		width: 120px;
 		padding: 3px;
