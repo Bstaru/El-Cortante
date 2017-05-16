@@ -6,6 +6,10 @@ function handleImage(e) {
     reader.onload = function (event) {
         
         $('.uploader img').attr('src',event.target.result);
+
+        console.log(event.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
 }
+
+

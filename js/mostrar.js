@@ -104,7 +104,7 @@ function ValidarEditar(){
       $(".op").css ("border-color","#ffffff");
       $(".birth").css ("border-color","#ffffff");
       $(".mail").css ("border-color","#ffffff");
-      $(".contraa").css ("border-color","#ffffff");
+      //$(".contraa").css ("border-color","#ffffff");
 
       $(".flechita3").css ("display","none");
       $(".flechita4").css ("display","none");
@@ -113,7 +113,7 @@ function ValidarEditar(){
       $(".flechita7").css ("display","none");
       $(".flechita8").css ("display","none");
       $(".flechita9").css ("display","none");
-      $(".flechita10").css ("display","none");
+      //$(".flechita10").css ("display","none");
 
       var name= $(".name").val();
       var last1 = $(".1lastname").val();
@@ -123,11 +123,12 @@ function ValidarEditar(){
       var bday= $(".birth").val();
       var mail= $(".mail").val();
       var pass= $(".contraa").val();
+
       
       console.log (name,last1,last2,tel,type,bday,mail,pass);
 
       if((name!="") && (last1 != "") && (last2 != "")&& (tel != "")
-      && (type != "")&& (bday != "") && (mail != "") && (pass != "") ){         
+      && (type != "")&& (bday != "") && (mail != "") ){         
         $(".formEdit").submit();
       }
       else{
@@ -159,10 +160,10 @@ function ValidarEditar(){
               $(".mail").css ("border-color","#fc6a6a");
                $(".flechita9").css ("display","inline");
           }
-           if(pass==""){
+          /* if(pass==""){
               $(".contraa").css ("border-color","#fc6a6a");
                $(".flechita10").css ("display","inline");
-          }
+          }*/
       }
 }
 $(document).ready(function(){
