@@ -17,13 +17,13 @@ if(!empty($_POST))
 
 	$error = '';
 	
-	$sql = "CALL u_usuario( '".$idU."','".$Pass."', '".$Name."', '".$Last1."', '".$Last2."', '".$Mail."', '".$Tel."', '".$Bday."', '".$Type."','1', 'null');";
+	$sql = "CALL u_usuario( '".$idU."','".$Pass."', '".$Name."', '".$Last1."', '".$Last2."', '".$Mail."', '".$Tel."', '".$Bday."', '".$Type."', 1, 'null');";
 
-	echo($sql);
+	//echo($sql);
 
 	$result=$conexion->query($sql);
 
-	//header("location: ../profile.php");
+	header("location: ../profile.php");
 }
 
 else{
