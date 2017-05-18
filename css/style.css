@@ -32,7 +32,7 @@ Colores:
 		}  a:hover{
 			color: #9FEAA7;
 			}
-			.login:hover, .new:hover, .logout:hover{
+			.login:hover, .new:hover, .logout:hover, .admon:hover{
 				color: black;
 			}
 
@@ -200,7 +200,7 @@ Colores:
 		.cancelsesion{
 			z-index: 200;
 			margin-left: 350px;
-			margin-top: 16px;
+			margin-top: 0px;
 			height: 30px;
 			width: 30px;
 			padding: 3px;
@@ -352,16 +352,14 @@ Colores:
 
 /*____________FOOTER___________________________________________________________________*/
 	.piedepagCont{
-		position: absolute;
+		position: relative;
 		top: 1300px;
 		left: 0; right: 0;
 		bottom: 0;
-		height: 300px;
 		width: 100%;
 		background-color: #5F95B5;
 	}
 	.piedepag{
-		height: 300px;
 		width: 1200px;
 		margin: 0px auto;
 	}
@@ -399,7 +397,7 @@ Colores:
 	.lilo{margin-left: 100px; margin-bottom: 10px;}
 
 	.fb,.tt,.u2 {
-		display:block; 
+		display: inline-block; 
 		height: 50px; width: 50px; 
 	    background-position: center top;
 	    background-repeat: no-repeat;
@@ -617,7 +615,6 @@ Colores:
 		background-color: #89C1D4;
 		cursor: pointer;
 	}
-
 
 /*____________PERFIL___________________________________________________________________*/
 	.datosCont{
@@ -955,7 +952,7 @@ Colores:
 					padding: 4.5px  0 0 0;
 				}
 				.dataNN input{
-					width: 300px;
+					width: 292px;
 					font-size: 25px;
 					padding: 4.5px;
 					border: 1px solid white;
@@ -1119,3 +1116,75 @@ Colores:
 					padding-bottom: 25px;
 					display: block;
 					}
+
+/*____________BUSQUEDA_________________________________________________________________*/
+	.admonss{
+		position: absolute;
+	    top: 310px;
+	    left: 0; 
+	    right: 0;
+	    bottom: 0;
+	    height: 975px;
+		}
+		.contA{
+			margin: 0px auto ;
+			display: block;
+			width: 1200px;
+		    max-height: 970px;
+		    border-radius: 20px 0px 0px 20px;
+		    overflow:scroll;
+		    overflow-x: hidden;
+		    background-color: rgba(137,193,212,.5);
+			}
+		.contA ul, .contA li{
+			list-style: none;
+			text-decoration: none;
+			padding-left: 5px;
+			}
+		.contA li{
+			font-size: 20px;
+			margin:  10px;
+			border-radius: 20px;
+			background-color: rgba(0,0,0,.2);
+			height: 170px;
+			position: relative;
+			}
+
+		.tituloss{
+			width: 300px;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			}
+			.tituloss h3, .tituloss h4{
+				margin: 15px;
+				}
+		.imgnotiss{
+			width: 300px;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 300px;
+			}
+			.imgResulNoti{
+				width: 100%;
+				height: 170px;
+				}
+		.botonesA{
+			width: 300px;
+			margin-top:40px; 
+			position: absolute;
+			top: 0;
+			right: 0;
+			}
+			.botonSi, .botonNo{
+				height: 80px; width: 80px;
+				margin: 0px 20px;
+				text-decoration: none;
+			}
+			.botonSi img, .botonNo img{
+				width: 80px;  height: 80px;
+			}
+		
+	
