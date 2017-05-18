@@ -15,30 +15,15 @@ if(	isset($_SESSION["IdUserReg"])){ ?>
 		}
 	</style>
 <?php
-
-	$idU = $_SESSION["IdUserReg"];	
-	$sql = "CALL s_usuario('".$idU."');";
-	echo($sql);
-
-	$result=$conexion->query($sql);
-	$rows = $result->num_rows;
-
-	if($rows > 0){
-		$row = $result->fetch_assoc();
-
-		$Nombre = $row['nombreU'];
-		$ApP = $row['AP'];
-		$ApM = $row['AM'];
-
-		echo("$rows");
-		}
-
-	else{
-		echo("chale :c");
-        header("../index.php");
-	}
+		  					
+	$query = $conexion -> query ("CALL s_seccion");
 	
+	$idU = $_SESSION["IdUserReg"];	
+	$Nombre = $_SESSION['NombreUserR'];
+	$ApP = $_SESSION['APU'];
+	$ApM = $_SESSION['AMU'];	
 	$TipU = $_SESSION['tipU'];
+
 	if ($TipU == 'reportero') {?>
 		<style>
 			.newNoticia{
@@ -54,6 +39,8 @@ if(	isset($_SESSION["IdUserReg"])){ ?>
 			}
 		</style>
 	<?php
+
+
 	}	
 }
 else{?>
@@ -66,6 +53,7 @@ else{?>
 			display: inline;
 		}
 	</style>
+
 <?php
 }
 
@@ -85,14 +73,16 @@ else{?>
 
 <body>
 <!--HEADER INICIO-->
+
 	<div class = "registroCont">
 		<div class = "linea"></div>	
 		<div class = "registro">
 
 			<div class = "botones">
 				<a  href="new.php" class = "new" id = "new"> Registrarme </a>
-				<a  href="#" class = "login" id = "login"> Iniciar Sesión </a>
-				<a  href="newNoti.php" class="newNoticia"> Nueva Noticia </a>	
+				<a  href="admin.php" class = "login" id = "login"> Iniciar Sesión </a>
+				<a  href="newNoti.php" class="newNoticia"> Nueva Noticia </a>
+				<a  href="admin.php" class="admon"> Admin </a>	
 				<a  href="php/logout.php" class="logout"> Cerrar Sesión </a>				
 			</div>
 
@@ -166,6 +156,7 @@ else{?>
 			</table>	
 		</div>
 	</div>
+
 <!--HEADER FIN-->
 
 <div class = "datosNN">
@@ -179,9 +170,8 @@ else{?>
 				<h2>Sección: </h2>
 
 				<select name = "section" class = "section"  required placeholder = "Seccion">
-	  					<?php
-	  					//s$conexion = '';
-						$query = $conexion -> query ("CALL s_seccion");
+	  				<?php
+	  					
 			          	while ($valores = mysqli_fetch_array($query)) {				
 			            	echo '<option name = "seccion" value = "'.$valores[idSec].'">'.$valores[nomSec].'</option>';				
 			          }

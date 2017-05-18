@@ -16,7 +16,7 @@ if(	isset($_SESSION["IdUserReg"])){ ?>
 
 	$idU = $_SESSION["IdUserReg"];	
 	$sql = "CALL s_usuario('".$idU."');";
-	echo($sql);
+	//echo($sql);
 
 	$result=$conexion->query($sql);
 	$rows = $result->num_rows;
@@ -75,7 +75,7 @@ else{?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Noticiero</title>
+	<title>El Cortante - Editar</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="img\cc.ico">			
@@ -92,10 +92,11 @@ else{?>
 		<div class = "registro">
 
 			<div class = "botones">
-				<a  href="new.php" class = "new" id = "new">Registrarme </a>
-				<a  href="#" class = "login" id = "login">Iniciar Sesión </a>
-				<a href="newNoti.php" class="newNoticia"> Nueva Noticia </a>
-				<a href="php/logout.php" class="logout">Cerrar Sesión </a>				
+				<a  href="new.php" class = "new" id = "new"> Registrarme </a>
+				<a  href="admin.php" class = "login" id = "login"> Iniciar Sesión </a>
+				<a  href="newNoti.php" class="newNoticia"> Nueva Noticia </a>
+				<a  href="admin.php" class="admon"> Admin </a>	
+				<a  href="php/logout.php" class="logout"> Cerrar Sesión </a>				
 			</div>
 
 			<div class = "usuario">

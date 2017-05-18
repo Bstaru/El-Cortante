@@ -67,7 +67,7 @@ else{?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Noticiero</title>
+	<title>El Cortante - Inicio</title>
 	<meta charset="UTF-8">
 	
 	<link rel="icon" href="img\cc.ico">			
@@ -93,7 +93,7 @@ else{?>
 				<a  href="new.php" class = "new" id = "new"> Registrarme </a>
 				<a  href="#" class = "login" id = "login"> Iniciar Sesión </a>
 				<a  href="newNoti.php" class="newNoticia"> Nueva Noticia </a>
-				<a  href="newNoti.php" class="admon"> Admin </a>	
+				<a  href="admin.php" class="admon"> Admin </a>	
 				<a  href="php/logout.php" class="logout"> Cerrar Sesión </a>				
 			</div>
 
@@ -260,7 +260,7 @@ else{?>
 </div>
 
 <!--FOOTER INICIO-->
-<div class = "piedepagCont">
+<div class = "piedepagCont" >
 	<div class = "piedepag">
 		<section>
 			<article>
@@ -268,7 +268,7 @@ else{?>
 					  <li class = "tituloli">EL CORTANTE</li>
 					  <hr>
 					  <li><a href="">Mi Perfil</a></li>
-					  <li><a href="">Subscribirme</a></li>
+					  <li><a href="">Reporteros</a></li>
 					  <li><a href="">Configuraciones</a></li>
 			</article>
 			<article>
@@ -278,30 +278,17 @@ else{?>
 					  <li><a href="">Locales</a></li>
 					  <li><a href="">Nacionales</a></li>
 					  <li><a href="">Internacional</a></li>
-					  <li><a href="">Economía</a></li>
-					  <li><a href="">Clima</a></li>
-					  <li><a href="">Deportes</a></li>
-					  <li><a href="">Espectáculos</a></li>
-					  <li><a href="">Vida y Estilo</a></li>
-					  <li><a href="">Tendencias</a></li>
-					</ul>
-			</article>
-			<article>	
-					<ul>
-					  <li class = "tituloli">INFORMACIÓN</li>
-					  <hr>
-					  <li><a href="">Reporteros</a></li>
-					  <li><a href="">Acerca de</a></li>
-					  <li><a href="">Contáctanos</a></li>
 					</ul>
 			</article>
 			<article>
 				<ul>
 					  <li class = "tituloli">SIGUENOS</li>
 					  <hr>
+					  <li><a href="">Contáctanos</a></li>
 					  <li class = "lilo"><a href="" class = "fb"></a></li>
 					  <li class = "lilo"><a href="" class = "tt"></a></li>
 					  <li class = "lilo"><a href="" class = "u2"></a></li>
+
 					  <li style = "padding-left: 40px;">&copy 2017 EL CORTANTE</li>
 					</ul>
 			</article>				

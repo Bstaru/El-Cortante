@@ -3,7 +3,7 @@
 require('php/conection.php');
 session_start();
 
-if(	isset($_SESSION["IdUserReg"])){ ?>
+if(	isset($_SESSION["IdUserReg"]) ){ ?>
 	<style>
 		.usuario, .logout{
 			display: inline;
@@ -13,38 +13,45 @@ if(	isset($_SESSION["IdUserReg"])){ ?>
 		}
 	</style>
 <?php
-
 	$idU = $_SESSION["IdUserReg"];
 	$Nombre = $_SESSION['NombreUserR'];
 	$ApP = $_SESSION['APU'];
 	$ApM = $_SESSION['AMU'];
-	$Tel = $_SESSION['telU'];
-	$FeN = $_SESSION['fNacU'];
 	$TipU = $_SESSION['tipU'];
 
 	if ($TipU == 'reportero') {?>
 		<style>
-			.newNoticia{
-				display: inline;
-			}
+			.newNoticia{display: inline;}
 		</style>
 	<?php
 	}
 	else{?>
 		<style>
-			.newNoticia{
-				display: none;
-			}
+			.newNoticia{display: none;}
 		</style>
 	<?php
 	}	
+	if ($TipU == 'admin') {?>
+		<style>
+			.admon{display: inline;}
+		</style>
+	<?php
+	}
+	else{?>
+		<style>
+			.admon{display: none;}
+		</style>
+	<?php
+	}
+
+
 }
 else{?>
 	<style>
 		.usuario, .logout{
 			display: none;
 		}
-		.newNoticia{display: none;}
+		.newNoticia,.admon{display: none;}
 		.new, .login{
 			display: inline;
 		}
@@ -67,7 +74,6 @@ else{?>
 </head>
 
 <body>
-
 <!--HEADER INICIO-->
 
 	<div class = "registroCont">
@@ -154,107 +160,29 @@ else{?>
 	</div>
 
 <!--HEADER FIN-->
-<div class="lanoticia">
-	<div class="lanotiCont"  id = "scroll">
-		
-		<div class="Noticia">
 
-			<div class="textoNoti">		
-
-				<div class="imglaco">
-					<a href=""><img src="img/like.png"></a>
-				</div>	
-
-				<h1>TITULO</h1> 		
-				<h3>Descripcion</h3>
-									<h4>Domingo 23 de Abril, 2017</h4>
-									<h4>AUTOR jeje</h4>
-
-				<img src="img/noti2.jpg" alt="imagen noticia">
-
-				<p>
-					Cuerpo de la noticia. 
-					<br>
-					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-					<br>
-					"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?".
-					<br>
-					"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-					<br>
-
-					"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
-					<br>
-				</p>
-				
-			</div>
-		</div>
-
-		<div class="Commentar">
-			<div class="Comentt">
-				<div class="fotoComent">
-					<img src="img/user.png">
+<div class="admonss">
+	<div class="contA"  id = "scroll">
+		<h1 style="margin-left: 10px;">APRUEBA O NO NOTICIAS</h1>	
+	<ul>
+			<li>
+				<div class="tituloss">		
+					<h3>Titulo</h3>
+					<h4>Usuario</h4>
+					<h4>fecha</h4>
+					<h4>seccion</h4>
 				</div>
-				<form class="coment">
-					<input type="text" name="comentar" id="txtCo">
-					<button id="Comentar">Comentar</button>
-				</form>
-			</div>
+				<div class="imgnotiss">
+					<img class="imgResulNoti" src="img/noti2.jpg">
+				</div>
+				<div class="botonesA">
+					<a href="#" class="botonSi"><img src="img/si.png"></a>
 
-			<div class="Comentarios">
-				<ul >		
-
-					<li class="unComent">
-						<div class="fotoComent">
-							<img src="img/user.png">
-						</div>
-						<p>El comentario</p>
-
-						<div class="btnComent">
-							<button id="btnCo">Comentar</button>
-						</div>
-
-							<ul>
-								<li class="unComentenComent">
-									<div class="fotoComent">
-										<img src="img/user.png">
-									</div>
-									<p>El comentario del comentario</p>
-								</li>
-							</ul>
-
-						<div class="Comentt2" id = "comentario2" style = "display:none;">
-							<form class="coment2">
-								<input type="text" name="comentar" id="txtCo2">
-								<button id="Comentar">Comentar</button>
-								<button id="ComentarNo">Cancelar</button>
-							</form>
-						</div>
-					</li>
-
-					<li class="unComent">
-						<div class="fotoComent">
-							<img src="img/user.png">
-						</div>
-						<p>Otro comentario mas grande. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-						
-						<div class="btnComent">
-							<button id="btnCo2">Comentar</button>
-						</div>
-
-						<div class="Comentt3" id = "comentario3" style = "display:none;">
-							<form class="coment3">
-								<input type="text" name="comentar" id="txtCo3">
-								<button id="Comentar2">Comentar</button>
-								<button id="ComentarNo2">Cancelar</button>
-							</form>
-						</div>
-					</li>
-				</ul>
-			</div>
-			
-		</div>
-
-
+					<a href="#" class="botonNo"><img src="img/no.png"></a>
+				</div>
+			</li>
+		
+	</ul>
 
 	</div>
 </div>
@@ -319,7 +247,6 @@ else{?>
 	<script type="text/javascript" src="js/scroll.js" ></script>
 	<script type="text/javascript" src="js/menu.js" ></script>
 	<script type="text/javascript" src="js/mostrar.js" ></script>
-	<script type="text/javascript" src="js/mostrarComment.js" ></script>
 	<script type="text/javascript" src="js/verFecha.js" ></script>
 </body>
 

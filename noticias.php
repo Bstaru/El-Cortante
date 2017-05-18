@@ -68,14 +68,16 @@ else{?>
 
 <body>
 <!--HEADER INICIO-->
+
 	<div class = "registroCont">
 		<div class = "linea"></div>	
 		<div class = "registro">
 
 			<div class = "botones">
 				<a  href="new.php" class = "new" id = "new"> Registrarme </a>
-				<a  href="#" class = "login" id = "login"> Iniciar Sesión </a>
-				<a  href="newNoti.php" class="newNoticia"> Nueva Noticia </a>	
+				<a  href="admin.php" class = "login" id = "login"> Iniciar Sesión </a>
+				<a  href="newNoti.php" class="newNoticia"> Nueva Noticia </a>
+				<a  href="admin.php" class="admon"> Admin </a>	
 				<a  href="php/logout.php" class="logout"> Cerrar Sesión </a>				
 			</div>
 
@@ -149,6 +151,7 @@ else{?>
 			</table>	
 		</div>
 	</div>
+
 <!--HEADER FIN-->
 	
 	<div class = "notiCont">
