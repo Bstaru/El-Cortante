@@ -1,4 +1,8 @@
 
+CREATE DATABASE elcortante;
+
+USE elcortante;
+
 CREATE TABLE `usuario` (
   `idUsuario` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `contra` varchar(255) DEFAULT NULL,
@@ -10,9 +14,9 @@ CREATE TABLE `usuario` (
   `fechNac` date DEFAULT NULL,
   `tipoU` enum('admin','reportero','usuario') DEFAULT NULL,
   `activo` bit(1) NOT NULL,
-  `imagen` varchar(255) DEFAULT NULL,
+  `imagen` blob,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `seccion` (
   `idSec` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -29,6 +33,7 @@ CREATE TABLE `noticia` (
   `aprobado` bit(1) DEFAULT NULL,
   `idUsuario` smallint(5) unsigned NOT NULL,
   `idSec` smallint(5) unsigned NOT NULL,
+  `activo` bit(1) DEFAULT NULL,
   PRIMARY KEY (`idNoti`),
   KEY `noticia_ibfk_1` (`idUsuario`),
   KEY `noticia_ibfk_2` (`idSec`),
