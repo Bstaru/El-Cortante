@@ -6,5 +6,7 @@
 	 
 	 $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name)
          or die('Error');
+
+
 ?>
 

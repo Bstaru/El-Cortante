@@ -4,6 +4,7 @@ session_start();
 
 if(!empty($_POST))
 {
+	$IdUser = mysqli_real_escape_string($conexion,$_POST['userNN']);
 	$Titulo = mysqli_real_escape_string($conexion,$_POST['titu']);
 	$Seccion = mysqli_real_escape_string($conexion,$_POST['section']);
 	$Descrip = mysqli_real_escape_string($conexion,$_POST['desc']);
@@ -18,7 +19,7 @@ if(!empty($_POST))
 
 	$result=$conexion->query($sql);
 
-	//header("location: ../index.php");
+	header("location: ../index.php");
 }
 
 else{
