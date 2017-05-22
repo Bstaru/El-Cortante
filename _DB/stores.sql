@@ -45,28 +45,22 @@ DELIMITER ;
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `u_usuario`(
 	IN id smallint(5),
-	IN con varchar(255),
 	IN nombre varchar(50),
     IN ApP varchar(50),
     IN ApM varchar(50),
-    IN corr varchar(30),
     IN telef bigint(20),
     IN fecha date,
-    IN tipo enum('admin','reportero','usuario'),
     IN activo bit(1),
     IN imagen blob
 )
 BEGIN
     	UPDATE usuario
     
-			SET contra = MD5(con),
-				nombreU = nombre,
-				AP =ApP,
-				AM =ApM,
-				email = corr,
+			SET nombreU = nombre,
+				AP = ApP,
+				AM = ApM,
 				tel = telef,
 				fechNac = fecha,
-				tipoU = tipo,
 				activo = activo,
 				imagen = imagen
 				WHERE idUsuario = id;
@@ -103,26 +97,59 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia_usuario`(
 
 IN id smallint (5)
 )
 BEGIN
 
-	SELECT titulo,descrip,cuerpo,fechaNoti,aprobado,idUsuario,idSec,activo
+	SELECT idNoti,descrip,cuerpo,fechaNoti,aprobado,idUsuario,idSec,activo
 	FROM noticia
-	WHERE idNoti = id;
+	WHERE idUsuario = id;
 
 	END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia_si`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia`(
 
+IN id smallint (5)
 )
 BEGIN
+	SET lc_time_names = 'es_MX';
+	SELECT 		
+			n.idNoti,
+			n.titulo,
+			n.descrip,
+			concat(u.nombreU, ' ', u.AP, ' ', u.AM) as NombreUsuario,
+			date_format(n.fechaNoti,'%W %d de %M,%Y'),
+            n.cuerpo,
+            n.aprobado, 
+            n.activo
+    
+	FROM noticia n
+    LEFT JOIN usuario u
+    ON n.idUsuario = u.idUsuario
+    LEFT JOIN seccion s
+    ON s.idSec = n.idSec
+    
+	WHERE n.aprobado = 1 AND n.idNoti = id
+    
+	ORDER BY n.fechaNoti DESC;
+ 
+	END$$
+DELIMITER ;
 
-	SELECT n.titulo,
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia_sec`(
+
+IN id smallint (5)
+)
+BEGIN
+	SELECT 		
+			n.idNoti,
+			n.titulo,
+			n.descrip,
 			concat(u.nombreU, ' ', u.AP, ' ', u.AM) as NombreUsuario,
 			n.fechaNoti,
             n.aprobado, 
@@ -135,7 +162,37 @@ BEGIN
     LEFT JOIN seccion s
     ON s.idSec = n.idSec
     
-	WHERE n.aprobado = 1;
+	WHERE n.aprobado = 1 AND n.idSec = id
+    
+	ORDER BY n.fechaNoti DESC;
+ 
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia_si`(
+
+)
+BEGIN
+SELECT 		
+			n.idNoti,
+			n.titulo,
+			n.descrip,
+			concat(u.nombreU, ' ', u.AP, ' ', u.AM) as NombreUsuario,
+			n.fechaNoti,
+            n.aprobado, 
+            s.nomSec, 
+            n.activo
+    
+	FROM noticia n
+    LEFT JOIN usuario u
+    ON n.idUsuario = u.idUsuario
+    LEFT JOIN seccion s
+    ON s.idSec = n.idSec
+    
+	WHERE n.aprobado = 1
+    
+	ORDER BY n.fechaNoti DESC;
 
 	END$$
 DELIMITER ;

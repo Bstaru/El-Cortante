@@ -173,7 +173,7 @@ $(document).ready(function(){
 
      $(".okedit").click(ValidarEditar);
      
- /*login*/
+    /*login*/
     $('#login').on('click',function() {
 
         $('#sesionCont').slideDown();
