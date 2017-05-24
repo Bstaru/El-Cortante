@@ -4,6 +4,7 @@ session_start();
 
 if(!empty($_POST))
 {
+
 	$IdUser = mysqli_real_escape_string($mysqli,$_POST['userNN']);
 	$Titulo = mysqli_real_escape_string($mysqli,$_POST['titu']);
 	$Seccion = mysqli_real_escape_string($mysqli,$_POST['section']);

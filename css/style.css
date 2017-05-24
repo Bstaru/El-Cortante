@@ -32,7 +32,7 @@ Colores:
 		}  a:hover{
 			color: #9FEAA7;
 			}
-			.login:hover, .new:hover, .logout:hover, .admon:hover{
+			.login:hover, .new:hover, .logout:hover, .admon:hover, .btnGo:hover{
 				color: black;
 			}
 
@@ -200,7 +200,7 @@ Colores:
 		.cancelsesion{
 			z-index: 200;
 			margin-left: 350px;
-			margin-top: 0px;
+			margin-top: 15px;
 			height: 30px;
 			width: 30px;
 			padding: 3px;
@@ -278,15 +278,15 @@ Colores:
 		font-size: 11pt;
 		height: 30px;
 		width: 245px;
-		border: none;
+		border: 1px solid #fff;
 		border-radius: 30px 0 0 30px;
 		padding-left: 5px;
 		padding-right: 5px;
 		}
 		.buscarOk{	
 		cursor: pointer;
-		height: 32px;
-		width: 45px;
+		height: 34px;
+		width: 43px;
 		background-color: #58C456;
 		border: none;
 		border-radius: 0 30px 30px 0;
@@ -460,7 +460,7 @@ Colores:
     left: 0; 
     right: 0;
     bottom: 0;
-	}.datos{
+	}.datos2{
 	display: block;
 	margin: 0px auto 0px auto;
     width: 1200px;
@@ -632,16 +632,16 @@ Colores:
     left: 0; 
     right: 0;
     bottom: 0;
-	height: 820px;
 	}.datos{
 		display: block;
 		margin: 0px auto 0px auto;
-	    height: 820px;
 	    width: 1200px;    
 		padding: 5px;
 		border-radius: 50px;
 		background-color: #58C456;		
 		box-shadow:0px 4px 3px rgba(0,0,0,.5);
+		overflow-y: auto;
+		overflow-y: scroll;
 	}
 	.fotito{
 		position:absolute;  
@@ -658,7 +658,7 @@ Colores:
 			}
 
 	.alldata {
-		height: 780px; width: 1155px;
+		width: 1155px;
 		margin: 20px auto;
 		}
 		.alldata hr{			
@@ -685,24 +685,24 @@ Colores:
 			.cuadro1 li {
 			margin-bottom: 20px;
 			}
-		.cuadro2, .cuadro3{
-			height: 250px; width: 1155px;
+		.cuadro2, .cuadro3, .cuadro4{
+			height: 200px; width: 1155px;
 			}
-			.cuadro2 h3, .cuadro3 h3{
+			.cuadro2 h3, .cuadro3 h3, .cuadro4 h3{
 				font-size: 15pt;
 				margin: 5px auto 0px auto;
 				text-align: center;
 			}
-			.cuadro2 article, .cuadro3 article{
+			.cuadro2 article, .cuadro3 article, .cuadro4 article{
 				display: inline-block;
-				height: 205px; width: 285px;
+				height: 150px; width: 285px;
 
 				-webkit-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
 				-moz-box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
 				box-shadow: inset 0px 0px 37px 0px rgba(54,51,54,1);
 
 			}
-		.cuadro3 h2{ text-align: center; }
+		.cuadro3 h2, .cuadro4 h2{ text-align: center; }
 
 
 	.hacerNoti{
@@ -746,7 +746,6 @@ Colores:
 			margin: 10px 5px;
 			width: 578px;
 			height: 300px;
-			background-image: url('../img/noti2.jpg');
 			border-radius: 20px;
 		}
 		 .laNoti:hover{
@@ -802,10 +801,15 @@ Colores:
 		margin: 0 auto;
 		padding: 15px;
 		}
-		.textoNoti{text-align: justify;}
+		.textoNoti{text-align: justify; position: relative;}
 		.textoNoti h4 {text-align: right;}
 		.Noticia img{width: 550px;}
-
+		.cantLikes{
+			position: absolute;
+			top: 20px;
+			right: 105px;
+			font-size: 25px;
+		}
 		.imglaco{
 			float: right;
 			height: 70px; width: 70px;
@@ -827,10 +831,15 @@ Colores:
 			 height: 80px;
 			 margin: 5px auto;
 			 text-align: center;
+			 position: relative;
 			}
-			.fotoComent{float: left;}
-				.fotoComent img {width: 63px; height: 63px;}
-			.coment{ 
+			.fotoComent{
+				position: absolute;
+				top: 0;
+				left: 5px;
+			}.fotoComent img {width: 65px; height: 65px;}
+		
+			.coment{
 				width: 480px;	
 				float: right;
 				padding-top: 13px;				
@@ -859,8 +868,7 @@ Colores:
 					cursor: pointer;
 				}
 
-	.Comentarios{
-		position: relative;		
+	.Comentarios{	
 		margin: 15px;
 		}
 		.Commentar ul{
@@ -868,12 +876,22 @@ Colores:
 			list-style:none;
 			padding: 0;
 			}
+	
 		.unComent{
 			margin: 5px;
 			background-color: #89C1D4;
 			border-radius: 0px 20px;
 			}
-			.unComent p{height: 70px;}
+			.fotoComent2{
+				float: left;
+			}.fotoComent2 img {width: 65px; height: 65px;}
+
+			.nomUserC{float: left; margin-left: 10px;}
+			.fechaCom{float: right;  margin-right: 10px;}
+			.unComent p{
+				margin-left: 50px;
+				margin-top: 50px;}
+
 			.btnComent{text-align: right;}
 			.btnComent button{
 					height: 27px;
@@ -887,42 +905,43 @@ Colores:
 					background-color: #58C456;
 					cursor: pointer;
 			}
+
 		.unComentenComent{
 			margin: 5px 0 5px 25px;
 			background-color: #89C1D4;
 			}
 			.unComentenComent p{height: 70px;}
 
-	.Comentt2, .Comentt3{
-			 width: 550px;
-			 height: 80px;
-			 margin: 0 auto;
-			 text-align: center;
-			}
-			.coment2, .coment3{ 	
-				padding-top: 13px;			
+		.Comentt2, .Comentt3{
+				 width: 550px;
+				 height: 80px;
+				 margin: 0 auto;
+				 text-align: center;
 				}
-				.coment2 input, .coment3 input {
-					height: 25px;
-					width: 300px;
-					font-size: 13pt;
-					font-family: 'Exo', sans-serif;
-					border: 1px solid white;
-					border-radius: 20px;
-					color: black;
-					margin-bottom: 17px;
-				}
-				.coment2 button, .coment3 button{
-					height: 30px;
-					width: 80;
-					padding: 3px;
-					border: 1px solid white;
-					border-radius: 20px;
-					font-size: 13pt;		
-					font-family: 'Exo', sans-serif;
-					background-color: #58C456;
-					cursor: pointer;
-				}
+				.coment2, .coment3{ 	
+					padding-top: 13px;			
+					}
+					.coment2 input, .coment3 input {
+						height: 25px;
+						width: 300px;
+						font-size: 13pt;
+						font-family: 'Exo', sans-serif;
+						border: 1px solid white;
+						border-radius: 20px;
+						color: black;
+						margin-bottom: 17px;
+					}
+					.coment2 button, .coment3 button{
+						height: 30px;
+						width: 80;
+						padding: 3px;
+						border: 1px solid white;
+						border-radius: 20px;
+						font-size: 13pt;		
+						font-family: 'Exo', sans-serif;
+						background-color: #58C456;
+						cursor: pointer;
+					}
 
 /*____________NEW NOTICIA______________________________________________________________*/
 	.datosNN{
@@ -1114,8 +1133,9 @@ Colores:
 		.laBus h3, .laBus h4,.laBus h5{
 			margin: 15px;
 			}
-			.imgResulNoti{
+			.imgResulNoti3{
 				width: 40%;
+				height: auto;
 				}
 			.imgResulU{
 				height: 70px;
@@ -1131,7 +1151,11 @@ Colores:
 					display: block;
 					}
 
-/*____________BUSQUEDA_________________________________________________________________*/
+		.filtro{
+			background-color: red;
+		}
+
+/*____________ADMIN_________________________________________________________________*/
 	.admonss{
 		position: absolute;
 	    top: 310px;
@@ -1192,13 +1216,108 @@ Colores:
 			top: 0;
 			right: 0;
 			}
-			.botonSi, .botonNo{
+			.botonSi{
 				height: 80px; width: 80px;
 				margin: 0px 20px;
 				text-decoration: none;
 			}
-			.botonSi img, .botonNo img{
+			.botonSi img {
 				width: 80px;  height: 80px;
 			}
 		
-	
+	.admonss2{
+		position: absolute;
+	    top: 310px;
+	    left: 0; 
+	    right: 0;
+	    bottom: 0;
+	    height: 975px;
+		}
+		.contA2{
+			padding: 20px;
+			margin: 0px auto ;
+			display: block;
+			width: 1200px;
+		    max-height: 970px;
+		    border-radius: 20px;
+		    background-color: rgba(137,193,212,.5);
+		    position: relative;
+			}
+			.joj{
+				height: 50px;
+				width: 80%;
+		    	border-radius: 20px;
+				background-color: #58C456;
+				text-align: center;
+				position: relative;
+			}
+			.btnGo {
+				position: absolute;
+				top: 10px;
+				left: 42px;
+				color: black;
+				font-size: 25px;
+			}
+	.tituloss2{
+			width: 300px;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 300px;
+			}
+			.tituloss2 h3, .tituloss2 h4{
+				margin: 15px;
+				}
+	.imgnotiss2{
+			width: 300px;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 100px;
+			}
+			.imgResulNoti2{
+				width: 170px;
+				height: 170px;
+				}
+	.botonBye{
+		height: 80px; width: 80px;
+		margin: 0px 20px;
+		text-decoration: none;
+		}
+		.botonBye img {
+			width: 80px;  height: 80px;
+		}
+
+	.hacerSec{
+		position: absolute;
+		top: 200px;
+		right: 90px;
+		width: 300px;
+		background-color: #9FEAA7;
+		text-align: center;
+		padding: 10px;
+		border-radius: 30px;
+	}
+	.nomSecNueva{
+		display: inline-block;
+			height: 45px;
+			width: 245px;
+			font-size: 15pt;
+			font-family: 'Exo', sans-serif;
+			border: 2px solid white;
+			border-radius: 30px;
+			color: black;
+			padding: 3px;
+			margin-bottom: 17px;
+	}
+	.oknewSec{
+		height: 33px;
+		width: 120px;
+		padding: 3px;
+		border: 2px solid white;
+		border-radius: 20px;
+		font-size: 15pt;		
+		font-family: 'Exo', sans-serif;
+		background-color: #89C1D4;
+		cursor: pointer;
+	}

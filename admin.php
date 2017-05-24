@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,27 +25,46 @@
 
 <div class="admonss">
 	<div class="contA"  id = "scroll">
-		<h1 style="margin-left: 10px;">APRUEBA O NO NOTICIAS</h1>	
+		<h1 style="margin-left: 10px;">APRUEBA NOTICIAS</h1>
+	
 	<ul>
-			<li>
-				<div class="tituloss">		
-					<h3>Titulo</h3>
-					<h4>Usuario</h4>
-					<h4>fecha</h4>
-					<h4>seccion</h4>
-				</div>
-				<div class="imgnotiss">
-					<img class="imgResulNoti" src="img/noti2.jpg">
-				</div>
-				<div class="botonesA">
-					<a href="#" class="botonSi"><img src="img/si.png"></a>
+		<?php
+			$mysqli = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+		  	$cuero = $mysqli -> query ("CALL s_noticia_no");  					
+		  	while ($valores = mysqli_fetch_array($cuero)) {	
 
-					<a href="#" class="botonNo"><img src="img/no.png"></a>
-				</div>
-			</li>
+				echo '<li>
+						<form action="php/yesNoti.php" class="formYesNoti" name="formYesNoti" method="POST">
+						<div class="tituloss">		
+							<h3>'.$valores[1].'</h3>
+							<h4>'.$valores[2].'</h4>
+							<h4>'.$valores[3].'</h4>
+							<h4>'.$valores[5].'</h4>
+							<input type = "text" style = "display:none;" name = "idNotiNo" class = "idNotiNo" value = "'.$valores[0].'">
+						</div>
+						<div class="imgnotiss">
+							<img class="imgResulNoti" src="img/noti2.jpg">
+						</div>
+						<div class="botonesA">		
+							<a href="#" class="botonSi"><img src="img/si.png"></a>			
+						</div>
+						</form>
+					</li>
+				';				
+			}
+			$mysqli->close();
+		?>
 		
 	</ul>
-
+	<script>			
+		$(document).ready(function(){
+		   
+			$(".botonSi").click(function() {
+				$(this).parent().parent().submit();
+			});
+			 
+		});
+	</script>
 	</div>
 </div>
 

@@ -36,6 +36,7 @@
 			</div>
 
 			<div class = "textos">
+				<input type = "text" class = "idUserE" value = "<?php echo $idU  ?>" name = "idUserE" style = "display:none;">
 
 				<input type = "text" class = "name" value = "<?php echo $Nombre ?>" name = "nameE"><div class = "f3"><img class = "flechita3" /></div>
 
@@ -55,8 +56,8 @@
 				</div>
 				<div class = "coso">
 					<div class="uploader" onclick="$('#filePhoto').click()">
-					    <img src="img/user.png"/>
-					    <input type="file" name="Upic"  id="filePhoto" />
+					    <img src="data:image/jpeg;base64,<?php echo $img ?>"/>
+					    <input type="file" name="UpicE"  id="filePhoto" value = "<?php echo $img ?>"/>
 					</div>				
 				</div>
 			</div>

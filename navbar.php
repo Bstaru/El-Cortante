@@ -43,21 +43,15 @@ session_start();
 			<?php
 			}	
 
-		$sql = "CALL s_usuario('".$idU."');";
-		$result=$mysqli->query($sql);
-		$rows = $result->num_rows;	
-	        
-		if($rows > 0){
-			$row = $result->fetch_assoc();
-		
-			$Nombre = $row['nombreU'];
-			$ApP = $row['AP'];
-			$ApM = $row['AM'];
-			$Tel = $row['tel'];
-			$FeN = $row['fechNac'];
-
-			}
-
+		$cuero = $mysqli -> query ("CALL s_usuario('".$idU."');");	
+		while ($valores = mysqli_fetch_array($cuero)) {	
+				    	$Nombre	= $valores[0];
+				       	$ApP 	= $valores[1];
+				       	$ApM 	= $valores[2];
+				       	$Tel 	= $valores[4];	
+				       	$FeN 	= $valores[5];
+				      	$img 	= base64_encode($valores[6]);	
+		}
 	}
 	else{?>
 		<style>
@@ -82,12 +76,12 @@ $mysqli->close();
 				<a  href="new.php" class = "new" id = "new"> Registrarme </a>
 				<a  href="#" class = "login" id = "login"> Iniciar Sesión </a>
 				<a  href="newNoti.php" class="newNoticia"> Nueva Noticia </a>
-				<a  href="admin.php" class="admon"> Admin </a>	
+				<a  href="todoAdmin.php" class="admon"> Admin </a>	
 				<a  href="php/logout.php" class="logout"> Cerrar Sesión </a>				
 			</div>
 
 			<div class = "usuario">
-				<img src="img/user.png">
+				<img src="data:image/jpeg;base64,<?php echo $img ?>">
 				<a href="profile.php?<?php echo $Nombre, $ApP, $ApM ?>" ><?php echo $Nombre ?> <?php echo $ApP ?> <?php echo $ApM ?></a>
 			</div>
 		</div>
@@ -129,10 +123,13 @@ $mysqli->close();
 						<p>Periodismo directo</p>
 					</td>
 					<td class = "buscarContT">
-						<form class = "buscarCont" name = "formBuscar" action="php/search.php" method="POST" >
-							<input type ="text" class = "buscarAlgo" placeholder = "Buscar...">
+						<form class = "buscarCont" name = "formBuscar" action="php/busGral.php" method="POST" >
+							<input type ="text" class = "buscarAlgo" name = "buscarAlgo" placeholder = "Buscar...">
 							<input type = "button" class = "buscarOk" >
 						</form>
+						<script>
+				
+						</script>
 					</td>
 				</tr>
 			</table>
@@ -158,3 +155,5 @@ $mysqli->close();
 			</table>	
 		</div>
 	</div>
+
+	<script src="js/busqueda.js" ></script>

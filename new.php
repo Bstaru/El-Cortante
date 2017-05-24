@@ -22,7 +22,7 @@
 
 <!--HEADER FIN-->
 <div class = "datosCont">
-	<div class = "datos">
+	<div class = "datos2">
 
 		<form action="php/regUser.php" class="formNew" name="formNew" method="POST" enctype="multipart/form-data">
 

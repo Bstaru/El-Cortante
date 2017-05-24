@@ -20,7 +20,7 @@
 	require("navbar.php");
 	?>
 </header>
-
+<style></style>
 <!--HEADER FIN-->
 	
 	<div class = "notiCont">
@@ -28,10 +28,27 @@
 			<?php
 			$sec=$_GET['idSec'];
 		        $mysqli = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
-	  			$cuero = $mysqli -> query ("CALL s_noticia_sec ('".$sec."');");	  					
+	  			$cuero = $mysqli -> query ("CALL s_noticia_sec ('".$sec."');");
+
+
 	  				
-			    while ($valores = mysqli_fetch_array($cuero)) {	
-			        echo '<div class = "laNoti">
+			    while ($valores = mysqli_fetch_array($cuero)) {
+			    		$idN = $valores[0];
+						$mysqli2 = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+			          	$cuero2 = $mysqli2 -> query("CALL s_media_img('".$idN."');");
+						while ($valores2 = mysqli_fetch_array($cuero2)) {
+						    $imagencita = $valores2[0];				
+						}					    
+						if($imagencita == ''){
+						    $imagencita = 'media/noimg.png';
+						}
+						$mysqli2->close();
+			    	
+			        echo '
+			        	<div class = "laNoti" style = "background-image: url('.$imagencita.');
+			        									background-repeat: no-repeat; 
+														background-size: cover;
+														background-position: 50% 50%;"">
 							<a href="unaNoti.php?idNoti='.$valores[0].'" class = "miniNoti">
 								<h4>'.$valores[1].'</h4>
 								<p>'.$valores[2].'</p>

@@ -6,8 +6,8 @@ function VerFotos(){
 	media = $("#uploadBtn").val();
 
 	if (media!= '') {
-		console.log(media);
 		$( ".contFotos" ).append( $( "<img id='theImg' src='" + media + "'/>" ) );
+		//$(".formNewMed").submit();
 	}
 	else{
 		alert('oie no');

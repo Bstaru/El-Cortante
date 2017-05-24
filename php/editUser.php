@@ -4,17 +4,15 @@ session_start();
 
 if(!empty($_POST))
 {
-	$idU = $_SESSION["ID"];
+	$idU = mysqli_real_escape_string($mysqli,$_POST['idUserE']);
+	$nombre = mysqli_real_escape_string($mysqli,$_POST['nameE']);
+	$app = mysqli_real_escape_string($mysqli,$_POST['1lastnameE']);
+	$apm = mysqli_real_escape_string($mysqli,$_POST['2lastnameE']);
+	$tel = mysqli_real_escape_string($mysqli,$_POST['telE']);
+	$fecha = mysqli_real_escape_string($mysqli,$_POST['birthDE']);
+	$imgdta = addslashes(file_get_contents($_FILES['UpicE']['tmp_name']));
 
-	$Name = mysqli_real_escape_string($mysqli,$_POST['nameE']);
-	$Last1 = mysqli_real_escape_string($mysqli,$_POST['1lastnameE']);
-	$Last2 = mysqli_real_escape_string($mysqli,$_POST['2lastnameE']);
-	$Tel = mysqli_real_escape_string($mysqli,$_POST['telE']);
-	$Bday = mysqli_real_escape_string($mysqli,$_POST['birthDE']);
-
-	$error = '';
-	
-	$sql = "CALL u_usuario( '".$idU."', '".$Name."', '".$Last1."', '".$Last2."','".$Tel."', '".$Bday."', 1, 'null');";
+	$sql = "CALL u_usuario('".$idU."', '".$nombre."','".$app."','".$apm."','".$tel."','".$fecha."','{$imgdta}');";
 
 	//echo($sql);
 
@@ -26,7 +24,7 @@ if(!empty($_POST))
 else{
 	//$error = "Esta mal chavo :C";
     echo("Info equivocada");
-    header("../editU.php");
+    header("../index.php");
 	}
 
 $mysqli->close();

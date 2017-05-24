@@ -21,13 +21,15 @@ session_start();
 		$_SESSION['TEL'] = $row['tel'];
 		$_SESSION['BDAY'] = $row['fechNac'];
 		$_SESSION['TYPE'] = $row['tipoU'];
+		//$_SESSION['TYPE'] = $row['imagen'];
 
-		header("location: ../index.php"); //?id=".$idU."-name=".$Nombre
+		header("location: ../profile.php"); //?id=".$idU."-name=".$Nombre
 		}
 
 	else{
-		echo("Info equivocada");
-        header("../new.php");
+		
+        header("../index.php");
+        echo("Cuenta inhabilitada o Datos incorrectos");
 	}
 $mysqli->close();
 

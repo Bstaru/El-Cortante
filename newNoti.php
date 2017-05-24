@@ -48,19 +48,23 @@
 			</div>
 			<div class="dataNN3">
 				<div class="formOKfn">
-					<input id="uploadFile" placeholder="Choose File" disabled="disabled" />
-					<div class="fileUpload okfile">
-						<span>Escoger</span>
-						 <input id="uploadBtn" type="file" class="upload2" />
-					</div>
+					<form action="php/regMedia.php" class="formNewMed" name="formNewMed" method="POST" enctype="multipart/form-data">
+					
+						<input id="uploadFile" placeholder="Choose File" disabled="disabled" />
 
-					<input type="button" name="okFotoN" class="okFotoN" id="okFotoN" value="Ok">
+						<div class="fileUpload okfile">
+							<span>Escoger</span>
+							 <input id="uploadBtn" type="file" name = "imgNnoti" class="upload2" />
+						</div>
 
-					<script>
-						document.getElementById("uploadBtn").onchange = function () {
-							document.getElementById("uploadFile").value = this.value;
-						};
-					</script>
+						<input type="button" name="okFotoN" class="okFotoN" id="okFotoN" value="Ok">
+					</form>
+						<script>
+							document.getElementById("uploadBtn").onchange = function () {
+								document.getElementById("uploadFile").value = this.value;
+							};
+						</script>
+					
 				</div>
 
 				<div  id = "scroll" class="contFotos" style="background-color: white;">

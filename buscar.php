@@ -24,40 +24,46 @@
 
 <div class="busquedas">
 	<div class="laBus"  id = "scroll">
-		
+	<div class="filtro">
+		<h4>Busqueda por:</h4>
+		<select>
+			<option>Usuario</option>
+			<option>Noticia</option>
+			<option>fecha</option>
+		</select>
+	</div>
+
+
 	<ul>
-		<a href="">
-			<li>
-				<h3>Titulo</h3>
-				<h4>Descripcion</h4>
-				<img class="imgResulNoti" src="img/noti2.jpg">
-			</li>
-		</a> 
-		<a href="">
-			<li>
-				<img class="imgResulU" src="img/1-blubber-brothers.jpg">
-				<h5 class="NomURes">Nombre de usuario/Reportero</h5>
-			</li>
-		</a> 
-		<a href="">
-			<li>
-				<h3>Titulo</h3>
-				<h4>Descripcion</h4>
-				<img class="imgResulNoti" src="img/noti2.jpg">
-			</li>
-		</a> 
-		<a href="">
-			<li>
-				<img class="imgResulU" src="img/1-blubber-brothers.jpg">
-				<h5 class="NomURes">Nombre de usuario/Reportero</h5>
-			</li>
-		</a> 
-		<a href="">
-			<li>
-				<img class="imgResulU" src="img/1-blubber-brothers.jpg">
-				<h5 class="NomURes">Nombre de usuario/Reportero</h5>
-			</li>
-		</a> 
+	<?php
+		$busqueda=$_GET['bus'];
+		$mysqli = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+		$cuero = $mysqli -> query ("CALL s_busqueda_general( '".$busqueda."');");	  					
+		  					
+		while ($valores = mysqli_fetch_array($cuero)) {	
+			if($valores[5] != '' && $valores[6]!= ''){
+				echo '			
+				<a href="">
+					<li>
+						<h3>'.$valores[5].'</h3>
+						<h4>'.$valores[6].'</h4>
+						<img class="imgResulNoti3" src="img/noti2.jpg">
+					</li>
+				</a> ';
+			}
+			else if($valores[1] != '' && $valores[2]!= '' && $valores[3]!= ''){
+				echo '	
+				<a href="">
+					<li>
+						<img class="imgResulU" src="img/1-blubber-brothers.jpg">
+						<h5 class="NomURes">'.$valores[1] + $valores[2] + $valores[3].'</h5>
+					</li>
+				</a> ';
+			}
+							
+		}
+		$mysqli->close();
+	?>
 	</ul>
 
 	</div>

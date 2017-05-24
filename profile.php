@@ -23,9 +23,9 @@
 <!--HEADER FIN-->
 
 <div class = "datosCont">
-	<div class = "datos">
+	<div class = "datos" id = "scroll">
 		<div class = "fotito">
-			<img src="img/user.png"/>
+			<img src="data:image/jpeg;base64,<?php echo $img ?>"/>
 		</div>
 
 		<div class = "alldata">
@@ -43,58 +43,116 @@
 					<h3>Likes</h3>
 					<hr>
 					<section>
-						<article></article>
-						<article></article>
-						<article></article>
-						<article></article>
+							<?php
+			        		$mysqli = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+		  					$cuero = $mysqli -> query ("CALL s_megusta_usuario ('".$idU."')");	  					 					
+				          	while ($valores = mysqli_fetch_array($cuero)) {
+				          	
+				          			$idN = $valores[0];
+				          			$mysqli2 = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+						          	$cuero2 = $mysqli2 -> query("CALL s_media_img('".$idN."');");
+									while ($valores2 = mysqli_fetch_array($cuero2)) {
+									    $imagencita = $valores2[0];				
+									}					    
+									if($imagencita == ''){
+									    $imagencita = 'media/noimg.png';
+									}
+									$mysqli2->close();
+				            	echo '	<article style="background-image: url('.$imagencita.');
+														background-repeat: no-repeat; 
+														background-size: cover;
+														background-position: 50% 50%;"	>
+											<h2 style="text-align: center">'.$valores[1].'</h2>
+
+										</article>';				
+				          	}
+							$mysqli->close();
+				        ?>
 					</section>
 				</article>
 				<?php 
 						if ($TipU == 'reportero') {?>
 							<style>
-								.cuadro3{display: inline;}
+								.cuadro3,.cuadro4, .hacerNoti{display: inline;}
 							</style>
 							<?php
 							}
 						else{?>
 							<style>
-								.cuadro3{display: none;}
+								.cuadro3,.cuadro4, .hacerNoti{display: none;}
 							</style>
 							<?php
 							}	
 				?>
 				<article class = "cuadro3"> <!--este sólo para reporteros-->
-					<h3>Notas subidas</h3>
+					<h3>Notas aprobadas</h3>
 					<hr>
 					<section>
 						<?php
 			        		$mysqli = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
-		  					$cuero = $mysqli -> query ("CALL s_noticia_usuario ('".$idU."')");	  					
+		  					$cuero = $mysqli -> query ("CALL s_noticia_usuario_si ('".$idU."')");	  					
 		  					
-				          	for ($jej = 0; $jej < 4; $jej ++) {	
-				          		$valores = mysqli_fetch_array($cuero);
-				          		$apro = $valores[3];
-				          		$bado = '';
-				          		if ($apro == 1){
-				          			$bado = 'Si';
+				          	while ($valores = mysqli_fetch_array($cuero)) {	
+				          		if ($valores[3] == 1){
+				          			$valores[3] = 'Si';
 				          		}
-				          		else
-				          		{
-				          			$bado = 'No';
-				          		}
-
-				            	echo '	<article style="background-image: url(img/noti1.jpg);
+				          			$idN = $valores[5];
+				          			$mysqli2 = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+						          	$cuero2 = $mysqli2 -> query("CALL s_media_img('".$idN."');");
+									while ($valores2 = mysqli_fetch_array($cuero2)) {
+									    $imagencita = $valores2[0];				
+									}					    
+									if($imagencita == ''){
+									    $imagencita = 'media/noimg.png';
+									}
+									$mysqli2->close();
+				            	echo '	<article style="background-image: url('.$imagencita.');
 														background-repeat: no-repeat; 
 														background-size: cover;
 														background-position: 50% 50%;"	>
 											<h2>'.$valores[0].'</h2>
-											<h3>Aprobado: '.$bado.'</h3>
+											<h3>Aprobado: '.$valores[3].'</h3>
 
 										</article>';				
 				          	}
 							$mysqli->close();
 				        ?>
 				 
+					</section>
+				</article>
+				<article class = "cuadro4"> <!--este sólo para reporteros-->
+					<h3>Notas pendientes</h3>
+					<hr>
+					<section>
+						<?php
+			        		$mysqli = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+		  					$cuero = $mysqli -> query ("CALL s_noticia_usuario_no ('".$idU."')");	  					
+		  					
+				          	while ($valores = mysqli_fetch_array($cuero)) {	
+				          		if ($valores[3] == 0){
+				          			$valores[3] = 'No';
+				          		}
+				          		$idN = $valores[5];
+				          			$mysqli2 = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+						          	$cuero2 = $mysqli2 -> query("CALL s_media_img('".$idN."');");
+									while ($valores2 = mysqli_fetch_array($cuero2)) {
+									    $imagencita = $valores2[0];				
+									}					    
+									if($imagencita == ''){
+									    $imagencita = 'media/noimg.png';
+									}
+									$mysqli2->close();
+				            	echo '	<article style="background-image: url('.$imagencita.');
+														background-repeat: no-repeat; 
+														background-size: cover;
+														background-position: 50% 50%;"	>
+											<h2>'.$valores[0].'</h2>
+											<h3>Aprobado: '.$valores[3].'</h3>
+
+										</article>';				
+				          	}
+							$mysqli->close();
+				        ?>
 					</section>
 				</article>
 

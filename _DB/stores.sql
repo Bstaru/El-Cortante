@@ -31,6 +31,15 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_usuario_bye`()
+BEGIN
+	SELECT nombreU,AP,AM,imagen,tipoU
+	FROM usuario
+	WHERE tipoU != 'admin';
+	END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `s_usuario_login`(
 	IN pass varchar(255),
     IN corr varchar (30)
@@ -68,6 +77,17 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `u_usuario_bye`(
+	IN id smallint(5)
+)
+BEGIN
+    	UPDATE usuario
+		SET		activo = 0
+        WHERE idUsuario = id;
+		END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `d_usuario`(
 IN id smallint(5)
 )
@@ -97,17 +117,38 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia_usuario`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia_usuario_si`(
 
 IN id smallint (5)
 )
 BEGIN
+
+	SELECT titulo,descrip,fechaNoti,aprobado,activo
+	FROM noticia
+	WHERE idUsuario = id AND aprobado = 1;
+
+	END$$
 
 	SELECT idNoti,descrip,cuerpo,fechaNoti,aprobado,idUsuario,idSec,activo
 	FROM noticia
 	WHERE idUsuario = id;
 
 	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia_usuario_no`(
+
+IN id smallint (5)
+)
+BEGIN
+
+	SELECT titulo,descrip,fechaNoti,aprobado,activo
+	FROM noticia
+	WHERE idUsuario = id AND aprobado = 0;
+
+	END$$
+
 DELIMITER ;
 
 DELIMITER $$
@@ -202,21 +243,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `s_noticia_no`(
 
 )
 BEGIN
-
-	SELECT n.titulo,
-			concat(u.nombreU, ' ', u.AP, ' ', u.AM) as NombreUsuario,
-			n.fechaNoti,
-            n.aprobado, 
-            s.nomSec, 
-            n.activo
-    
-	FROM noticia n
-    LEFT JOIN usuario u
-    ON n.idUsuario = u.idUsuario
-    LEFT JOIN seccion s
-    ON s.idSec = n.idSec
-    
-	WHERE n.aprobado = 0;
+	SELECT titulo,NombreUsuario,fechaNoti,aprobado,nomSec,activo 
+    FROM v_noticiasno;
 
 	END$$
 DELIMITER ;
@@ -287,8 +315,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `s_seccion`(
 
 )
 BEGIN
-		SELECT idSec, nomSec
-		FROM seccion;
+		SELECT idSec, nomSec FROM v_secciones;
 	END$$
 DELIMITER ;
 
@@ -343,6 +370,98 @@ BEGIN
 	WHERE idMedia = id;
 	END$$
 DELIMITER ;
+
+/*------------------------------------------------------------------------------BUSQUEDA-------------*/
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_busqueda_usuario`(
+	IN dato varchar(100)
+)
+BEGIN
+
+SELECT 	idUsuario,
+		nombreU, 
+        AP, 
+        AM,
+		imagen,
+        tipoU
+
+FROM usuario
+
+WHERE nombreU LIKE CONCAT('%', dato ,'%') OR
+	  AP LIKE CONCAT('%', dato ,'%')OR
+	  AM LIKE CONCAT('%', dato ,'%');
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_busqueda_fecha`(
+	IN dato varchar(100)
+)
+BEGIN
+
+SELECT 	idNoti,
+		titulo, 
+        descrip,
+        fechaNoti
+FROM noticia
+
+WHERE fechaNoti LIKE CONCAT('%', dato ,'%')
+      AND activo = 1;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_busqueda_noticia`(
+	IN dato varchar(100)
+)
+BEGIN
+
+SELECT 	idNoti,
+		titulo, 
+        descrip,
+        fechaNoti
+FROM noticia
+
+WHERE titulo LIKE CONCAT('%', dato ,'%') OR
+	  descrip LIKE CONCAT('%', dato ,'%')
+      AND activo = 1;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `s_busqueda_general`(
+	IN dato varchar(100)
+)
+BEGIN
+SELECT idUsuario,AP,AM,idNoti,titulo,descrip,activo FROM v_busqueda
+
+WHERE nombreU LIKE CONCAT('%', dato ,'%') OR
+	  AP LIKE CONCAT('%', dato ,'%')OR
+	  AM LIKE CONCAT('%', dato ,'%') or
+      titulo LIKE CONCAT('%', dato ,'%') OR
+	  descrip LIKE CONCAT('%', dato ,'%')
+      AND activo = 1;
+END$$
+DELIMITER ;
+
+
+/*------------------------------------------------------------------------------COMENTARIO-------------*/
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `i_comentario`(
+
+IN idNot smallint(5),
+IN cont varchar(140),
+
+IN idU smallint(5),
+IN idR smallint(5)
+)
+BEGIN
+
+	INSERT INTO comentario(idNoti,contenido, fechaCom, idUsuario, idReply)
+	VALUES (idNot,cont,CURDATE(),idU,null);
+	END$$
+DELIMITER ;
+
 
 
 

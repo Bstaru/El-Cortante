@@ -38,10 +38,24 @@
 	  					
 			          	for ($jej = 0; $jej < 6; $jej ++) {	
 			          		$valores = mysqli_fetch_array($cuero);
+
+			          		$idN = $valores[0];
+
+			          		$mysqli2 = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+			          		$cuero2 = $mysqli2 -> query("CALL s_media_img('".$idN."');");
+							while ($valores2 = mysqli_fetch_array($cuero2)) {
+						       		$imagencita = $valores2[0];				
+						    }					    
+
+						    if($imagencita == ''){
+						       	$imagencita = 'media/noimg.png';
+						    }
+
+						    $mysqli2->close();	
 			            	echo '	<div class="unaNoti" >
-										<a href="unaNoti.php?idNoti='.$valores[0].'">
+										<a href="unaNoti.php?idNoti='.$idN.'">
 										<figure>
-								            <img src="img/noti1.jpg" alt="" class="imgAnun">								         
+								            <img src="'.$imagencita.'" alt="No imagen preview" class="imgAnun">	         
 								            <figcaption>
 									            <h2>'.$valores[1].'</h2>
 									            <h4>'.$valores[2].'</h4>
@@ -78,7 +92,6 @@
 	<script src="js/menu.js" ></script>
 	<script src="js/mostrar.js" ></script>
 	<script src="js/verFecha.js" ></script>
-	<script src="js/touch.js"></script>
 </body>
 
 </html>
