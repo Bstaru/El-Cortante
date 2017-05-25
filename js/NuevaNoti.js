@@ -10,15 +10,16 @@ function ValidarRegistro(){
       var cuerpo = $(".cuerpo").val();
       var seccion = $(".section").val();
       var usuario = $(".userNN").val();
+      var laimg = $(".upload2").val();
       
       console.log (titulo,descripcion,cuerpo,usuario, seccion);
 
-      if((titulo!="") && (descripcion != "") && (cuerpo != "")){         
+      if((titulo!="") && (descripcion != "") && (cuerpo != "") && (laimg != "")){         
         $(".formNN").submit();
       }
       else{
           if(name==""){
-              $(".name").css ("border-color","#fc6a6a");
+             alert('INSERTA TODOS LOS DATOS POR FAVOR');
           }
            
       }

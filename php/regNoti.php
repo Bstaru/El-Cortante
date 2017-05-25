@@ -12,9 +12,28 @@ if(!empty($_POST))
 	$Cuerpo = mysqli_real_escape_string($mysqli,$_POST['cue']);
 	$Usuario = mysqli_real_escape_string($mysqli,$_POST['userNN']);
 
-	//$error = '';
+	$imagg = 'media/'.basename($_FILES['imgNnoti']['name']);
+
+	$dat = basename($_FILES['imgNnoti']['name']);
+	$rest = substr($dat, -4);
 	
-	$sql = "CALL i_noticia( '".$Titulo."', '".$Descrip."', '".$Cuerpo."', '".$Usuario."', '".$Seccion."');";
+	if ($rest == '.mp4') {
+		$uploaddir = '../media/'.time().'mp4';
+	}
+	else {
+		$uploaddir = '../media/'.time().'jpg';
+	}
+
+    $uploadfile = $uploaddir.basename($_FILES['imgNnoti']['name']);
+
+
+    if (move_uploaded_file($_FILES['imgNnoti']['tmp_name'], $uploadfile)) {
+      echo "File is valid, and was successfully uploaded.\n";
+    } else {
+       echo "Upload failed";
+    }
+
+	$sql = "CALL i_noticia_cImg( '".$Titulo."', '".$Descrip."', '".$Cuerpo."', '".$Usuario."', '".$Seccion."', '".$imagg."');";
 
 	echo($sql);
 
@@ -31,7 +50,7 @@ else{
 
 	
 $mysqli->close();	
-	 
+	
 
 ?>
 

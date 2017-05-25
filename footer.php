@@ -3,14 +3,6 @@
 		<section>
 			<article>
 					<ul>
-					  <li class = "tituloli">EL CORTANTE</li>
-					  <hr>
-					  <li><a href="profile.php">Mi Perfil</a></li>
-					  <li><a href="">Reporteros</a></li>
-					  <li><a href="">Configuraciones</a></li>
-			</article>
-			<article>
-					<ul>
 					  <li  class = "tituloli">NOTICIAS</li>
 					  <hr>
 						 <?php

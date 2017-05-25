@@ -635,7 +635,8 @@ Colores:
 	}.datos{
 		display: block;
 		margin: 0px auto 0px auto;
-	    width: 1200px;    
+	    width: 1200px;
+	    height: 930px;    
 		padding: 5px;
 		border-radius: 50px;
 		background-color: #58C456;		
@@ -1152,7 +1153,47 @@ Colores:
 					}
 
 		.filtro{
-			background-color: red;
+			width: 80%;
+			display: inline-block;
+		}
+		.filtro form{
+			display: inline-block;
+			width: 50%;
+		}
+		.filtro span{
+			font-size: 30px;
+			width: 105px;
+			margin: 20px;
+		}
+		.filtro select{
+			font-size: 20px;
+			width: 150px; height:  45px;
+			margin: 20px;
+			color: black;
+			background-color: white;
+			border: 1px solid white;
+			border-radius: 30px;
+			padding: 5px;
+		}
+		.filtro input[type=text]{
+			font-size: 20px;
+			width: 200px; height:  30px;
+			margin: 20px;
+			color: black;
+			background-color: white;
+			border: 1px solid white;
+			border-radius: 30px;
+			padding: 5px;
+		}
+		.filtro input[type=button]{
+			font-size: 20px;
+			width: 150px; height:  45px;
+			margin: 20px;
+			color: black;
+			background-color: #9FEAA7;
+			border: 1px solid white;
+			border-radius: 30px;
+			padding: 5px;
 		}
 
 /*____________ADMIN_________________________________________________________________*/

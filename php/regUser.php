@@ -16,11 +16,11 @@ if(!empty($_POST))
 	
 	$sql = "CALL i_usuario( '".$Pass."', '".$Name."', '".$Last1."', '".$Last2."', '".$Mail."', '".$Tel."', '".$Bday."', '".$Type."', '{$imgdta}');";
 
-	echo($sql);
+	//echo($sql);
 
 	$result=$mysqli->query($sql);
 
-	//header("location: ../index.php");
+	header("location: ../index.php");
 }
 
 else{

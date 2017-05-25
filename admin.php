@@ -32,7 +32,17 @@
 			$mysqli = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
 		  	$cuero = $mysqli -> query ("CALL s_noticia_no");  					
 		  	while ($valores = mysqli_fetch_array($cuero)) {	
+		  		$idN = $valores[0];
 
+				$mysqli2 = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
+				$cuero2 = $mysqli2 -> query("CALL s_media_img('".$idN."');");
+				while ($valores2 = mysqli_fetch_array($cuero2)) {
+					$imagencita = $valores2[0];				
+					}					    
+					if($imagencita == ''){
+						$imagencita = 'media/noimg.png';
+					}
+				$mysqli2->close();
 				echo '<li>
 						<form action="php/yesNoti.php" class="formYesNoti" name="formYesNoti" method="POST">
 						<div class="tituloss">		
@@ -43,7 +53,7 @@
 							<input type = "text" style = "display:none;" name = "idNotiNo" class = "idNotiNo" value = "'.$valores[0].'">
 						</div>
 						<div class="imgnotiss">
-							<img class="imgResulNoti" src="img/noti2.jpg">
+							<img class="imgResulNoti" src="'.$imagencita.'">
 						</div>
 						<div class="botonesA">		
 							<a href="#" class="botonSi"><img src="img/si.png"></a>			

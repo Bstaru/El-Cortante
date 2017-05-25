@@ -1,12 +1,13 @@
+
 function VerFotos(){
 
-	var media;
-	var url;
+	var media = $("#uploadFile").val();
+	var destino = 'media/' + media;
 
-	media = $("#uploadBtn").val();
+	console.log(destino)
 
 	if (media!= '') {
-		$( ".contFotos" ).append( $( "<img id='theImg' src='" + media + "'/>" ) );
+		$( ".contFotos" ).append( $( "<img id='theImg' src='" + destino + "'/>" ) );
 		//$(".formNewMed").submit();
 	}
 	else{

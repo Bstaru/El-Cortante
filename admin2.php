@@ -32,11 +32,11 @@
 			$mysqli = new mysqli("localhost", "root", "shineekey91", "elcortante") or die('Error');
 		  	$cuero = $mysqli -> query ("CALL s_usuario_bye");  					
 		  	while ($valores = mysqli_fetch_array($cuero)) {	
-
+		  		$imgU = base64_encode($valores[2]);
 				echo '<li>
 						<form action="php/byeUser.php" class="formYesNoti" name="formYesNoti" method="POST">
 						<div class="imgnotiss2">
-							<img class="imgResulNoti2" src="img/user.png">
+							<img class="imgResulNoti2" src = "data:image/jpeg;base64,'.$imgU.'">
 						</div>
 						<div class="tituloss2">		
 							<h3>'.$valores[1].'</h3>

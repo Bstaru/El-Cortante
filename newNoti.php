@@ -23,7 +23,7 @@
 <!--HEADER FIN-->
 <div class = "datosNN">
 	<div class = "datosNN">
-		<form class = "formNN" name = "formNN" action="php/regNoti.php" method="POST">
+		<form class = "formNN" name = "formNN" action="php/regNoti.php" method="POST" enctype="multipart/form-data">
 			<div class="dataNN" >
 
 				<input type="text" name="userNN" class="userNN" value="<?php echo $idU ?>" style = "display: none;">
@@ -48,31 +48,59 @@
 			</div>
 			<div class="dataNN3">
 				<div class="formOKfn">
-					<form action="php/regMedia.php" class="formNewMed" name="formNewMed" method="POST" enctype="multipart/form-data">
-					
-						<input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+						<input id="uploadFile" name="uploadFile" placeholder="Choose File" disabled="disabled" />
 
 						<div class="fileUpload okfile">
 							<span>Escoger</span>
-							 <input id="uploadBtn" type="file" name = "imgNnoti" class="upload2" />
+							 <input id="uploadBtn" type="file" name = "imgNnoti" class="upload2" accept="video/mp4,image/jpeg" />
 						</div>
 
-						<input type="button" name="okFotoN" class="okFotoN" id="okFotoN" value="Ok">
-					</form>
+						<!--input type="button" name="okFotoN" class="okFotoN" id="okFotoN" value="Ok"-->
+				
 						<script>
 							document.getElementById("uploadBtn").onchange = function () {
-								document.getElementById("uploadFile").value = this.value;
+								var path = this.value;
+								var filename = path.replace(/^.*\\/, "");
+								document.getElementById("uploadFile").value = filename;
 							};
-						</script>
+							function VerFotos(){
+								if (media!= '') {
+									$( ".contFotos" ).append( $( "<img id='theImg' src='" + destino + "'/>" ) );
+								}
+								else{
+									alert('oie no');
+								}
+							}
+							/*
+							$(document).ready(function(){
+								$("#okFotoN").click(function(){
+
+									var media = $("#uploadFile").val();
+									var destino = 'media/' + media;
+									//console.log(destino)
+
+									 $.ajax({
+										  type: "POST",
+										  url: "php/regMedia.php",
+										  data: { uploadBtn : uploadBtn }
+										}).done(function( msg ) {
+										  alert( "Data Saved: " + msg );
+										});   
+								});
+							});*/
+
+						</script>	
+						<?php
+						 ?>
 					
 				</div>
 
-				<div  id = "scroll" class="contFotos" style="background-color: white;">
+				<!--div  id = "scroll" class="contFotos" style="background-color: white;">
 				 	<img id="profile-img-tag" src="img/1-blubber-brothers.jpg">
 				 	<video>
 	  					<source src="img/nya.mp4" type="video/mp4">
 				 	</video>
-				</div>
+				</div-->
 			</div>		
 			<div class="dataNN2">			
 				<h2>Cuerpo: </h2>		
@@ -98,9 +126,7 @@
 	<script type="text/javascript" src="js/scroll.js" ></script>
 	<script type="text/javascript" src="js/menu.js" ></script>
 	<script type="text/javascript" src="js/mostrar.js" ></script>	
-	<script type="text/javascript" src="js/verFoto.js" ></script>
-	<script type="text/javascript" src="js/verFecha.js" ></script>
-	<script type="text/javascript" src="js/verFotosN.js" ></script>	
+	<script type="text/javascript" src="js/verFecha.js" ></script>	
 	<script type="text/javascript" src="js/NuevaNoti.js" ></script>
 </body>
 

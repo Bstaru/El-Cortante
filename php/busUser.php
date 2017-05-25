@@ -4,15 +4,10 @@ session_start();
 
 if(!empty($_POST))
 {
-	$nombre = mysqli_real_escape_string($mysqli,$_POST['nomSecNueva']);
-	
-	$sql = "CALL s_busqueda_usuario( '".$busqueda."');";
+	$busqueda = mysqli_real_escape_string($mysqli,$_POST['busUser']);
 
-	//echo($sql);
-
-	$result=$mysqli->query($sql);
-
-	header("location: ../todoAdmin.php");
+	//echo $busqueda;
+	header("location: ../buscar.php?busU=".$busqueda);
 }
 
 else{
@@ -26,5 +21,7 @@ $mysqli->close();
 	 
 
 ?>
+
+
 
 
